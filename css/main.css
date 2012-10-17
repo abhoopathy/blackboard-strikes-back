@@ -149,7 +149,7 @@ body {
   display: none;
 }
 .side-col .task-list-container {
-  overflow-y: scroll;
+  overflow-y: auto;
   margin-top: 10px;
   background-color: white;
   box-shadow: #808080 0 1px 5px;
