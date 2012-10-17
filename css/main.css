@@ -1,0 +1,359 @@
+/*---------------------------------------------------
+    LESS Elements 0.6
+  ---------------------------------------------------
+    A set of useful LESS mixins by Dmitry Fadeyev
+    Special thanks for mixin suggestions to:
+      Kris Van Herzeele,
+      Benoit Adam,
+      Portenart Emile-Victor,
+      Ryan Faerman
+
+    More info at: http://lesselements.com
+-----------------------------------------------------*/
+body {
+  width: 100%;
+  *zoom: 1;
+}
+body:before,
+body:after {
+  content: "";
+  display: table;
+}
+body:after {
+  clear: both;
+}
+body {
+  padding: 0;
+  margin: 0;
+  font: 13px Arial, Helvetica, Garuda, sans-serif;
+  *font-size: small;
+  *font: x-small;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+ul,
+li,
+em,
+strong,
+pre,
+code {
+  padding: 0;
+  margin: 0;
+  line-height: 1em;
+  font-size: 100%;
+  font-weight: normal;
+  font-style: normal;
+}
+table {
+  font-size: inherit;
+  font: 100%;
+}
+ul {
+  list-style: none;
+}
+img {
+  border: 0;
+}
+p {
+  margin: 1em 0;
+}
+.color1 {
+  background-color: #3b8183;
+}
+.color2 {
+  background-color: #ed303c;
+}
+.color3 {
+  background-color: #f5634a;
+}
+.color4 {
+  background-color: #fad089;
+}
+.color5 {
+  background-color: #a0cd64;
+}
+body {
+  background-color: lightblue;
+  color: #4b4b4b;
+}
+.app-wrapper {
+  position: absolute;
+  top: 25px;
+  left: 25px;
+  right: 25px;
+  bottom: 25px;
+}
+.side-col {
+  position: absolute;
+  top: 51px;
+  width: 20%;
+  left: 0;
+  bottom: 20px;
+  /* For the Class List in top left -------------------------- */
+
+  /* For the Task List --------------------------------------- */
+
+}
+.side-col .class-list-container {
+  overflow-y: auto;
+  max-height: 80%;
+  background-color: white;
+  box-shadow: #808080 0 1px 5px;
+  -webkit-border-top-right-radius: 0;
+  -webkit-border-bottom-right-radius: 0;
+  -webkit-border-bottom-left-radius: 5px;
+  -webkit-border-top-left-radius: 5px;
+  -moz-border-radius-topright: 0;
+  -moz-border-radius-bottomright: 0;
+  -moz-border-radius-bottomleft: 5px;
+  -moz-border-radius-topleft: 5px;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 5px;
+  border-top-left-radius: 5px;
+  -moz-background-clip: padding;
+  -webkit-background-clip: padding-box;
+  background-clip: padding-box;
+  -webkit-mask-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAA5JREFUeNpiYGBgAAgwAAAEAAGbA+oJAAAAAElFTkSuQmCC);
+  border-top: 1px solid #b3b3b3;
+  border-left: 1px solid #b3b3b3;
+  border-bottom: 1px solid #b3b3b3;
+  font-size: 1.1em;
+  letter-spacing: -0.07em;
+  font-weight: bold;
+}
+.side-col .class-list-container .class-list-item {
+  border-top: 1px solid #b3b3b3;
+  padding: 10px;
+  position: relative;
+  padding-left: 25px;
+  cursor: pointer;
+  /* sublist that expands */
+
+}
+.side-col .class-list-container .class-list-item:first-child {
+  border-top: none;
+}
+.side-col .class-list-container .class-list-item .class-list-item-colorcode {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 15px;
+}
+.side-col .class-list-container .class-list-item ul.class-sublist {
+  display: none;
+}
+.side-col .task-list-container {
+  overflow-y: scroll;
+  margin-top: 10px;
+  background-color: white;
+  box-shadow: #808080 0 1px 5px;
+  border-top: 1px solid #b3b3b3;
+  border-left: 1px solid #b3b3b3;
+  border-bottom: 1px solid #b3b3b3;
+  -webkit-mask-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAA5JREFUeNpiYGBgAAgwAAAEAAGbA+oJAAAAAElFTkSuQmCC);
+  -webkit-border-top-right-radius: 0;
+  -webkit-border-bottom-right-radius: 0;
+  -webkit-border-bottom-left-radius: 5px;
+  -webkit-border-top-left-radius: 5px;
+  -moz-border-radius-topright: 0;
+  -moz-border-radius-bottomright: 0;
+  -moz-border-radius-bottomleft: 5px;
+  -moz-border-radius-topleft: 5px;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 5px;
+  border-top-left-radius: 5px;
+  -moz-background-clip: padding;
+  -webkit-background-clip: padding-box;
+  background-clip: padding-box;
+}
+.side-col .task-list-container .task-list-item {
+  border-top: 1px solid #b3b3b3;
+  padding: 15px;
+  position: relative;
+  overflow: hidden;
+}
+.side-col .task-list-container .task-list-item:first-child {
+  border-top: none;
+}
+.side-col .task-list-container .task-list-item.completed {
+  -moz-opacity: 0.5;
+  -khtml-opacity: 0.5;
+  -webkit-opacity: 0.5;
+  opacity: 0.5;
+}
+.side-col .task-list-container .task-list-item .task-list-item-box {
+  width: 15px;
+  height: 15px;
+  float: left;
+  display: inline;
+  border: 1px solid #b3b3b3;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  -moz-background-clip: padding;
+  -webkit-background-clip: padding-box;
+  background-clip: padding-box;
+  margin-right: 8px;
+}
+.side-col .task-list-container .task-list-item .task-list-item-text {
+  float: left;
+}
+.side-col .task-list-container .task-list-item .task-list-item-text .task-list-item-name {
+  font-size: 1em;
+  letter-spacing: 0em;
+  font-weight: bold;
+}
+.side-col .task-list-container .task-list-item .task-list-item-text .task-list-item-subtext {
+  font-size: 0.85em;
+  margin-top: .2em;
+}
+.side-col .task-list-container .task-list-item .task-list-item-tag {
+  float: right;
+  color: white;
+  font-size: .8em;
+  font-weight: bold;
+  padding: 3px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  -moz-background-clip: padding;
+  -webkit-background-clip: padding-box;
+  background-clip: padding-box;
+}
+.toolbar {
+  background: #333333;
+  background: -webkit-gradient(linear, left bottom, left top, color-stop(0, #262626), color-stop(1, #595959));
+  background: -ms-linear-gradient(bottom, #262626, #595959);
+  background: -moz-linear-gradient(center bottom, #262626 0%, #595959 100%);
+  -webkit-border-top-right-radius: 5px;
+  -webkit-border-bottom-right-radius: 0;
+  -webkit-border-bottom-left-radius: 0;
+  -webkit-border-top-left-radius: 5px;
+  -moz-border-radius-topright: 5px;
+  -moz-border-radius-bottomright: 0;
+  -moz-border-radius-bottomleft: 0;
+  -moz-border-radius-topleft: 5px;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+  border-top-left-radius: 5px;
+  -moz-background-clip: padding;
+  -webkit-background-clip: padding-box;
+  background-clip: padding-box;
+  top: 0px;
+  height: 50px;
+  left: 21%;
+  right: 25px;
+  background-color: black;
+}
+.toolbar .content {
+  position: static;
+}
+.main-col {
+  background-color: white;
+  box-shadow: #808080 0 1px 12px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  -moz-background-clip: padding;
+  -webkit-background-clip: padding-box;
+  background-clip: padding-box;
+  position: absolute;
+  width: 80%;
+  top: 0px;
+  bottom: 0px;
+  left: 20%;
+}
+.page.calendar {
+  position: absolute;
+  top: 65px;
+  left: 15px;
+  right: 15px;
+  bottom: 15px;
+  border-top: 1px solid #b3b3b3;
+  border-left: 1px solid #b3b3b3;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-size-sizing: border-box;
+  overflow: hidden;
+}
+.page.calendar .cal-cell {
+  padding: 4px;
+  border-bottom: 1px solid #b3b3b3;
+  border-right: 1px solid #b3b3b3;
+  float: left;
+  width: 14.285714285714286%;
+  height: 20%;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-size-sizing: border-box;
+  overflow-y: auto;
+}
+.page.calendar .cal-cell.today {
+  background-color: #f2f2f2;
+}
+.page.calendar .cal-cell .cal-event {
+  margin-top: .2em;
+  padding: 3px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  -moz-background-clip: padding;
+  -webkit-background-clip: padding-box;
+  background-clip: padding-box;
+  overflow: hidden;
+  color: white;
+  font-size: .8em;
+  white-space: nowrap;
+}
+.page.calendar .cal-cell .cal-event .cal-event-time {
+  font-weight: bold;
+  margin-right: .3em;
+}
+/* Mixins ---------------------------------------------------------------------------*/
+/* Custom buttons -------------------------------------------------------------------*/
+/* --ELEMENTs MIXINS --------------------------------------------------------------------------------
+
+    .gradient( @color: #F5F5F5, @start: #EEE, @stop: #FFF )
+    .bw-gradient( @color: #F5F5F5, @start: 0, @stop: 255 )
+    .bordered( @top-color: #EEE, @right-color: #EEE, @bottom-color: #EEE, @left-color: #EEE )
+    .drop-shadow( @x-axis: 0, @y-axis: 1px, @blur: 2px, @alpha: 0.1 )
+    .rounded( @radius: 2px )
+    .border-radius( @topright: 0, @bottomright: 0, @bottomleft: 0, @topleft: 0 )
+    .opacity( @opacity: 0.5 )
+    .transition-duration( @duration: 0.2s )
+    .rotation( @deg:5deg ){
+    .scale( @ratio:1.5 ){
+    .transition( @duration:0.2s, @ease:ease-out )
+    .inner-shadow( @horizontal:0, @vertical:1px, @blur:2px, @alpha: 0.4 )
+    .box-shadow( @arguments )
+    .columns( @colwidth: 250px, @colcount: 0, @colgap: 50px, @columnRuleColor: #EEE, @columnRuleStyle: solid,
+      @columnRuleWidth: 1px )
+    .translate( @x:0, @y:0 )
+
+
+-----GRID MIXINS ------------------------------------------------------------------------------------
+
+  Set these variables (defaults below, 12 col 960px grid)
+  @column-width: 60;
+  @gutter-width: 20;
+  @columns: 12;
+
+  If you want a fluid grid
+  @total-width: 100%;
+
+  Mixins
+  .column(3);
+  .row(9)
+    .column(3,9);
+  .push(2);
+  .pull(2);
+
+*/
