@@ -87,7 +87,7 @@ body {
   right: 25px;
   bottom: 25px;
 }
-.side-col {
+#side-col {
   position: absolute;
   top: 51px;
   width: 20%;
@@ -98,7 +98,7 @@ body {
   /* For the Task List --------------------------------------- */
 
 }
-.side-col .class-list-container {
+#side-col .class-list-container {
   overflow-y: auto;
   max-height: 80%;
   background-color: white;
@@ -126,7 +126,7 @@ body {
   letter-spacing: -0.07em;
   font-weight: bold;
 }
-.side-col .class-list-container .class-list-item {
+#side-col .class-list-container .class-list-item {
   border-top: 1px solid #b3b3b3;
   padding: 10px;
   position: relative;
@@ -135,20 +135,20 @@ body {
   /* sublist that expands */
 
 }
-.side-col .class-list-container .class-list-item:first-child {
+#side-col .class-list-container .class-list-item:first-child {
   border-top: none;
 }
-.side-col .class-list-container .class-list-item .class-list-item-colorcode {
+#side-col .class-list-container .class-list-item .class-list-item-colorcode {
   position: absolute;
   top: 0;
   bottom: 0;
   left: 0;
   width: 15px;
 }
-.side-col .class-list-container .class-list-item ul.class-sublist {
+#side-col .class-list-container .class-list-item ul.class-sublist {
   display: none;
 }
-.side-col .task-list-container {
+#side-col .task-list-container {
   overflow-y: auto;
   margin-top: 10px;
   background-color: white;
@@ -173,22 +173,22 @@ body {
   -webkit-background-clip: padding-box;
   background-clip: padding-box;
 }
-.side-col .task-list-container .task-list-item {
+#side-col .task-list-container .task-list-item {
   border-top: 1px solid #b3b3b3;
   padding: 15px;
   position: relative;
   overflow: hidden;
 }
-.side-col .task-list-container .task-list-item:first-child {
+#side-col .task-list-container .task-list-item:first-child {
   border-top: none;
 }
-.side-col .task-list-container .task-list-item.completed {
+#side-col .task-list-container .task-list-item.completed {
   -moz-opacity: 0.5;
   -khtml-opacity: 0.5;
   -webkit-opacity: 0.5;
   opacity: 0.5;
 }
-.side-col .task-list-container .task-list-item .task-list-item-box {
+#side-col .task-list-container .task-list-item .task-list-item-box {
   width: 15px;
   height: 15px;
   float: left;
@@ -202,19 +202,19 @@ body {
   background-clip: padding-box;
   margin-right: 8px;
 }
-.side-col .task-list-container .task-list-item .task-list-item-text {
+#side-col .task-list-container .task-list-item .task-list-item-text {
   float: left;
 }
-.side-col .task-list-container .task-list-item .task-list-item-text .task-list-item-name {
+#side-col .task-list-container .task-list-item .task-list-item-text .task-list-item-name {
   font-size: 1em;
   letter-spacing: 0em;
   font-weight: bold;
 }
-.side-col .task-list-container .task-list-item .task-list-item-text .task-list-item-subtext {
+#side-col .task-list-container .task-list-item .task-list-item-text .task-list-item-subtext {
   font-size: 0.85em;
   margin-top: .2em;
 }
-.side-col .task-list-container .task-list-item .task-list-item-tag {
+#side-col .task-list-container .task-list-item .task-list-item-tag {
   float: right;
   color: white;
   font-size: .8em;
@@ -256,7 +256,7 @@ body {
 .toolbar .content {
   position: static;
 }
-.main-col {
+#main-col {
   background-color: white;
   box-shadow: #808080 0 1px 12px;
   -webkit-border-radius: 5px;
