@@ -3,10 +3,9 @@ define [
     'underscore',
     'backbone',
 
-    'cs!views/sidebar'
     'cs!views/main'
 
-], ($, _, Backbone, SidebarView, MainView) ->
+], ($, _, Backbone, MainView) ->
 
     AppRouter = Backbone.Router.extend
         self: this
@@ -26,8 +25,7 @@ define [
 
         appRouter.on('defaultAction')
         Backbone.history.start()
-        this.sidebarView = new SidebarView()
-        this.sidebarView.initialize()
+        this.mainView = new MainView()
 
     return {
         initialize: initialize
