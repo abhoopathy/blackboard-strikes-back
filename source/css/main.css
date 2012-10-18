@@ -182,7 +182,7 @@ body {
 #side-col .task-list-container .task-list-item:first-child {
   border-top: none;
 }
-#side-col .task-list-container .task-list-item.completed {
+#side-col .task-list-container .task-list-item.checked {
   -moz-opacity: 0.5;
   -khtml-opacity: 0.5;
   -webkit-opacity: 0.5;

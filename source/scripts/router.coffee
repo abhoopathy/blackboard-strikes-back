@@ -14,21 +14,21 @@ define [
         routes:
             #'proj/:tag_name': 'show_project'
             #'branding': 'show_branding_page'
-            '': 'home'
-
-        home: ->
-            #this.show_project('venmoHomepage')
+            '*actions': 'defaultAction'
 
        #analytics: () ->
        #    url = Backbone.history.getFragment()
        #    _gaq.push(['_trackPageview', "/#{url}"])
 
 
-    returnable =
+    initialize = ->
+        appRouter = new AppRouter
 
-        sidebarView: SidebarView
+        appRouter.on('defaultAction')
+        Backbone.history.start()
+        this.sidebarView = new SidebarView()
+        this.sidebarView.initialize()
 
-        initialize: ->
-            app_router = new AppRouter
-            Backbone.history.start()
-            this.sidebarView.init()
+    return {
+        initialize: initialize
+    }

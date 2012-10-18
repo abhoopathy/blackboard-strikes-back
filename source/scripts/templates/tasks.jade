@@ -1,0 +1,8 @@
+- each task in tasks
+    - var klass = (task.checked ? 'task-list-item checked' : 'task-list-item')
+    div(class=klass)
+        .task-list-item-box
+        .task-list-item-text
+            .task-list-item-name= task.taskName
+            .task-list-item-subtext  Wed 10/17, 11am
+        .task-list-item-tag(class="color"+task.classID)= task.shortName
