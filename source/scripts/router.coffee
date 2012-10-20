@@ -3,17 +3,16 @@ define [
     'underscore',
     'backbone',
 
-    'cs!views/main'
 
-], ($, _, Backbone, MainView) ->
+], ($, _, Backbone ) ->
 
-    AppRouter = Backbone.Router.extend
-        self: this
-
+    Router = Backbone.Router.extend
         routes:
-            #'proj/:tag_name': 'show_project'
-            #'branding': 'show_branding_page'
+            'class/:id': 'openClass'
             '*actions': 'defaultAction'
+
+        openClass: (classID) ->
+            App.mainView.openClass(classID, false)
 
        #analytics: () ->
        #    url = Backbone.history.getFragment()
@@ -21,11 +20,10 @@ define [
 
 
     initialize = ->
-        appRouter = new AppRouter
-
-        appRouter.on('defaultAction')
+        router = new Router
         Backbone.history.start()
-        this.mainView = new MainView()
+        return router
+
 
     return {
         initialize: initialize

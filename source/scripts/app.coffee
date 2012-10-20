@@ -1,11 +1,15 @@
+window.App = {}
+
 #The App
 define [
     'jquery',
     'underscore',
     'backbone',
-    'cs!router'
-], ($, _, Backbone, Router) ->
+    'cs!router',
+    'cs!views/main'
+], ($, _, Backbone, Router, MainView ) ->
 
-    App =
+    window.App =
         initialize: ->
-            Router.initialize();
+            App.mainView = new MainView()
+            App.router = Router.initialize();

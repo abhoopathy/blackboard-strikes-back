@@ -3,10 +3,13 @@ define [
     'underscore',
     'backbone',
 
-    'cs!collections/tasks'
+    'cs!collections/classes',
+    'cs!views/classList',
+
+    'cs!collections/tasks',
     'cs!views/taskList'
 
-], ($, _, Backbone, TaskCollection, TaskListView) ->
+], ($, _, Backbone, ClassCollection, ClassListView, TaskCollection, TaskListView) ->
 
     SidebarView = Backbone.View.extend
 
@@ -20,28 +23,64 @@ define [
             'click .class-list-item-text': 'expandClassListItem'
         }
 
-        computeTaskHeight: ->
-            this.$sidecol.height() - this.$classes.height()
+        computeTaskHeight: -> this.$sidecol.height() - this.$classes.height()
 
         expandClassListItem: (e) ->
             $listItem = $(e.target).closest('.class-list-item')
             classID = $listItem.attr('data-classid')
+            App.router.navigate("class/#{classID}")
+            this.openClass(classID, true, $listItem)
 
-            # get classID from dom element
-            classID = $listItem.attr('data-classid')
+        openClass: (classID, animate, $listItem) ->
+            $listItem = if $listItem then $listItem else $(".class-list-item[data-classid='#{classID}']")
 
-            # find subnavigation, get height of class list
-            $ul = $($listItem).find('.class-sublist');
+            # find subnavigations
+            $ul = $($listItem).find('.class-sublist')
 
-            $ul.toggle()
-            newHeight = this.$sidecol.height() - this.$classes.height();
-            $ul.toggle()
+            if animate
 
-            $ul.animate {height: 'toggle'}, {duration: 150, queue: false}
-            this.$tasks.animate {height: newHeight}, {duration: 150, queue: false}
+                #
+                $allULs = $(".class-list-item ul")
 
-        initialize: ->
+                #
+                $allULs.each ->
+                    $(this).hide()
+                $ul.toggle()
+                newHeight = this.computeTaskHeight()
+                $ul.toggle()
 
+                #
+                $allULs.each ->
+                    $(this).animate {height: 'hide'}, {duration: 150, queue: false}
+                $ul.animate {height: 'toggle'}, {duration: 150, queue: false}
+                this.$tasks.animate {height: newHeight}, {duration: 150, queue: false}
+
+            else
+                $ul.toggle()
+                newHeight = this.computeTaskHeight()
+                this.$tasks.height(newHeight)
+
+
+        initialize: () ->
+
+            ##### Handling Class List
+
+            ## Populate classes
+            this.classCollection = new ClassCollection()
+            this.classCollection.add([
+                { id: '1', fullName: 'User Centered Research and Evaluation', shortName: ' UCRE' },
+                { id: '2', fullName: 'Cognitive Modelling', shortName: 'CogMod' },
+                { id: '3', fullName: 'Evolution & History of Life', shortName: 'Evolution' },
+                { id: '4', fullName: 'Entrepreneurship for CS', shortName: 'Entrepr' },
+                { id: '5', fullName: 'Interpretation and Argument', shortName: 'Interp' },
+            ]);
+
+            # Compile class list template and put in class list container
+            classListView = new ClassListView(this.classCollection)
+
+
+
+            ## Task List Handling
             this.taskCollection = new TaskCollection()
 
             ## When a task is added, put it in the correct class
@@ -68,5 +107,8 @@ define [
             ])
 
             taskListView = new TaskListView(this.taskCollection)
+
+            #set initial height
+            this.$tasks.height this.computeTaskHeight()
 
     return SidebarView

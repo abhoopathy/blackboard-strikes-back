@@ -18,8 +18,8 @@ require.config({
         jquery: {
             exports: '$'
         }
-    }
 
+    }
 });
 
 require(['cs!app'], function(App) {
