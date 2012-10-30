@@ -28,7 +28,6 @@ body {
 
 @outside-margin: 25px;
 .app-wrapper {
-    @outside-margin: 25px;
     position: absolute;
     top: @outside-margin;
     left: @outside-margin;
@@ -37,7 +36,7 @@ body {
 }
 #side-col {
     position: absolute;
-    top: 51px;
+    top: @toolbar-height + 1px;
     width: 20%;
     left: 0;
     bottom: 20px;
@@ -283,6 +282,19 @@ body {
         font-size: 11px;
     }
 
+    .app-wrapper {
+        @outside-margin: 15px;
+        top: @outside-margin;
+        left: @outside-margin;
+        right: @outside-margin;
+        bottom: @outside-margin;
+    }
+
+    @toolbar-height: 30px;
+    .toolbar {
+        height: @toolbar-height;
+    }
+
     .page {
         &.calendar {
             @calendar-margin: 0px;
@@ -315,6 +327,7 @@ body {
     }
 
     #side-col {
+        top: @toolbar-height + 1px;
 
         .class-list-container {
             .border-radius(0,0,0px,5px);

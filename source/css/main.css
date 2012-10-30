@@ -332,8 +332,17 @@ body {
   body {
     font-size: 11px;
   }
+  .app-wrapper {
+    top: 15px;
+    left: 15px;
+    right: 15px;
+    bottom: 15px;
+  }
+  .toolbar {
+    height: 30px;
+  }
   .page.calendar {
-    top: 50px;
+    top: 30px;
     left: 0px;
     right: 0px;
     bottom: 0px;
@@ -359,6 +368,9 @@ body {
   }
   .shortName {
     display: block;
+  }
+  #side-col {
+    top: 31px;
   }
   #side-col .class-list-container {
     -webkit-border-top-right-radius: 0;
