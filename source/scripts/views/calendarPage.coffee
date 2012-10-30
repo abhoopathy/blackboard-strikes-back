@@ -23,25 +23,30 @@ define [
                     .append EventTemplate(event)
 
         fakeData: (month) ->
-            start = month.events.length+1
 
-            # to get random class number
+            numDays = month.days
             numClasses = App.data.classes.length
-            debugger
-            randClass = -> _.random(1, numClasses)
 
-            # to get random class number
-            times = []
+            # pick from array
+            pickRandom = (arr) -> arr[_.random(0, arr.length-1)]
 
-            for i in [start..start+10]
+            # to get random event name
+            times = _.union( (_.map [9..11], (n) -> n + "a"), (_.map [1..10], (n) -> n + "p") )
+
+            # to get random event name
+            eventNames = ["Office Hours", "Exam Review", "Quiz", "Guest Lecture"]
+
+            start = month.events.length+1
+            for i in [start..start+50]
+                id = i
                 event = {
-                    "id": i
-                    "classID": randClass()
-                    "name": "Office Hours"
-                    "day": "11"
-                    "time": "5pm"
+                    "id": id
+                    "classID": pickRandom [1..numClasses]
+                    "name": pickRandom eventNames
+                    "day": pickRandom [1..numDays]
+                    "time": pickRandom times
                 }
-                console.log event
+                month.events.push(event)
 
         showAllEvents: (animate) ->
             this.$events = if this.$events then this.$events else $('.cal-event')
