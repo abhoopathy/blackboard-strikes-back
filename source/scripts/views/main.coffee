@@ -90,15 +90,15 @@ define [
             App.calendarPageView.filterEvents(classID, animate)
             this.currentClassID = classID
 
-        initialize: (data) ->
+        initialize: () ->
             ##### Handling Calendar ####
-            App.calendarPageView = new CalendarPageView(data.months)
+            App.calendarPageView = new CalendarPageView(App.data.months)
 
             ##### Handling Class List ####
 
             ## Populate classes
             this.classCollection = new ClassCollection()
-            this.classCollection.add(data.classes)
+            this.classCollection.add(App.data.classes)
             App.classListView = new ClassListView(this.classCollection)
 
 
@@ -119,7 +119,7 @@ define [
                 shortName = classModel.get('shortName')
                 task.set('shortName', shortName)
 
-            this.taskCollection.add(data.tasks)
+            this.taskCollection.add(App.data.tasks)
 
             App.taskListView = new TaskListView(this.taskCollection)
 

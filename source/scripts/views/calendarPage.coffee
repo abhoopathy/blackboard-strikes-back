@@ -1,11 +1,12 @@
 define [
     'jquery',
+    'underscore',
     'backbone',
 
     'jade!templates/calendar'
     'jade!templates/event'
 
-], ($, Backbone, CalendarTemplate, EventTemplate) ->
+], ($, _, Backbone, CalendarTemplate, EventTemplate) ->
 
     CalendarPageView = Backbone.View.extend
 
@@ -13,12 +14,34 @@ define [
 
         render: (monthNumber)->
             month = this.collection[monthNumber]
+            this.fakeData month
             compiledTemplate = CalendarTemplate(month)
             this.$el.html compiledTemplate
 
             _.each month.events, (event) ->
                 $calCell = $(".cal-cell[data-day='#{event.day}']")
                     .append EventTemplate(event)
+
+        fakeData: (month) ->
+            start = month.events.length+1
+
+            # to get random class number
+            numClasses = App.data.classes.length
+            debugger
+            randClass = -> _.random(1, numClasses)
+
+            # to get random class number
+            times = []
+
+            for i in [start..start+10]
+                event = {
+                    "id": i
+                    "classID": randClass()
+                    "name": "Office Hours"
+                    "day": "11"
+                    "time": "5pm"
+                }
+                console.log event
 
         showAllEvents: (animate) ->
             this.$events = if this.$events then this.$events else $('.cal-event')

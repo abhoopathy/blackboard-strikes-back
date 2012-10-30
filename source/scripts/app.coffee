@@ -14,13 +14,14 @@ define [
 
 ], ($, _, Backbone, Router, MainView, ClassList, TaskList) ->
     window.App =
-        initialize: ->
 
+        initialize: ->
             $.ajax {
                 url: "scripts/data.json"
                 dataType: 'json'
                 success: (data) ->
-                    App.mainView = new MainView(data)
+                    App.data = data
+                    App.mainView = new MainView()
                     App.router = Router.initialize();
             }
 
