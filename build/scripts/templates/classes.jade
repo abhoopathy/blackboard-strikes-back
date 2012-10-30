@@ -1,8 +1,0 @@
-- each klass in classes
-    .class-list-item(data-classid=klass.id)
-        .class-list-item-colorcode(class='color'+klass.id)
-        .class-list-item-text.fullName= klass.fullName
-        .class-list-item-text.shortName= klass.shortName
-        ul.class-sublist
-            - each section in klass.sections
-                li= section.name
