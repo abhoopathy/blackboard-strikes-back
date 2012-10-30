@@ -5,11 +5,11 @@
             "fullName": "User Centered Research and Evaluation",
             "shortName": "UCRE",
             "sections": [
-                { "name": "Syllabus" }, 
-                { "name": "Course Documents" },
-                { "name": "People" },
-                { "name": "Lectures" },
-                { "name": "Exam Review" }
+                { "name": "Syllabus", "link": "syllabus" },
+                { "name": "Course Documents", "link": "course_docs"  },
+                { "name": "People", "link": "people"  },
+                { "name": "Lectures", "link": "lectures"  },
+                { "name": "Exam Review", "link": "exam_review"  }
             ]
         },
         {
@@ -17,8 +17,8 @@
             "fullName": "Cognitive Modelling",
             "shortName": "CogMod",
             "sections": [
-                { "name": "Syllabus" },
-                { "name": "People" }
+                { "name": "Syllabus", "link": "syllabus" },
+                { "name": "People", "link": "people"  }
             ]
         },
         {
@@ -26,9 +26,9 @@
             "fullName": "Evolution & History of Life",
             "shortName": "Evolution",
             "sections": [
-                { "name": "Syllabus" },
-                { "name": "Course Documents" },
-                { "name": "People" }
+                { "name": "Syllabus", "link": "syllabus"  },
+                { "name": "Course Documents", "link": "course_docs"  },
+                { "name": "People", "link": "people"  }
             ]
         },
         {
@@ -36,10 +36,9 @@
             "fullName": "Entrepreneurship for CS",
             "shortName": "Entrepr",
             "sections": [
-                { "name": "Syllabus" },
-                { "name": "Course Documents" },
-                { "name": "People" },
-                { "name": "People" }
+                { "name": "Syllabus", "link": "syllabus"  },
+                { "name": "Course Documents", "link": "course_docs"  },
+                { "name": "People", "link": "people"  }
             ]
         },
         {
@@ -47,10 +46,10 @@
             "fullName": "Interpretation and Argument",
             "shortName": "Interp",
             "sections": [
-                { "name": "Syllabus" },
-                { "name": "Course Documents" },
-                { "name": "People" },
-                { "name": "Links" }
+                { "name": "Syllabus", "link": "syllabus"  },
+                { "name": "Course Documents", "link": "course_docs"  },
+                { "name": "People", "link": "people"  },
+                { "name": "Links", "link": "links"  }
             ]
         }
     ],
