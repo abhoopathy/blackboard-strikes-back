@@ -319,6 +319,17 @@ body {
 }
 /* Mixins ---------------------------------------------------------------------------*/
 /* Custom buttons -------------------------------------------------------------------*/
+.shortName {
+  display: none;
+}
+@media screen and (min-width: 0px) and (max-width: 900px) {
+  .fullName {
+    display: none;
+  }
+  .shortName {
+    display: block;
+  }
+}
 /* --ELEMENTs MIXINS --------------------------------------------------------------------------------
 
     .gradient( @color: #F5F5F5, @start: #EEE, @stop: #FFF )

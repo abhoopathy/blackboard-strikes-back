@@ -1,3 +1,6 @@
+window.p = function (s) {
+    console.log(s);
+};
 //Define shortcut aliases
 
 require.config({
@@ -22,6 +25,6 @@ require.config({
     }
 });
 
-require(['cs!app'], function(App) {
+require(['cs!app'], function(App, Data) {
     App.initialize();
 });

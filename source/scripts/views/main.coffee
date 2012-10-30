@@ -9,106 +9,125 @@ define [
     'cs!collections/tasks',
     'cs!views/taskList'
 
-], ($, _, Backbone, ClassCollection, ClassListView, TaskCollection, TaskListView) ->
+    'cs!views/calendarPage'
 
-    SidebarView = Backbone.View.extend
+], ($, _, Backbone, ClassCollection, ClassListView, TaskCollection, TaskListView, CalendarPageView) ->
+
+    MainView = Backbone.View.extend
 
         el: $('#side-col')
 
-        $classes: $('.class-list-container')
-        $tasks: $('.task-list-container')
-        $sidecol: $('#side-col')
+        events: {}
 
-        events: {
-            'click .class-list-item-text': 'expandClassListItem'
-        }
+        currentClassID: null
 
-        computeTaskHeight: -> this.$sidecol.height() - this.$classes.height()
+        computeTaskHeight: ->
+            this.$el.height() - App.classListView.$el.height()
 
-        expandClassListItem: (e) ->
-            $listItem = $(e.target).closest('.class-list-item')
-            classID = $listItem.attr('data-classid')
-            App.router.navigate("class/#{classID}")
-            this.openClass(classID, true, $listItem)
+        setHeight: ->
+            newHeight = this.computeTaskHeight()
+            App.taskListView.$el.height(newHeight)
 
-        openClass: (classID, animate, $listItem) ->
-            $listItem = if $listItem then $listItem else $(".class-list-item[data-classid='#{classID}']")
-
-            # find subnavigations
-            $ul = $($listItem).find('.class-sublist')
-
+        closeClass: ($listItem, animate) ->
+            $hideUl = $listItem.find('.class-sublist')
             if animate
+                speed = 150
 
-                #
-                $allULs = $(".class-list-item ul")
-
-                #
-                $allULs.each ->
-                    $(this).hide()
-                $ul.toggle()
+                ## find height to animate
+                $hideUl.hide()
                 newHeight = this.computeTaskHeight()
-                $ul.toggle()
+                $hideUl.show()
 
-                #
-                $allULs.each ->
-                    $(this).animate {height: 'hide'}, {duration: 150, queue: false}
-                $ul.animate {height: 'toggle'}, {duration: 150, queue: false}
-                this.$tasks.animate {height: newHeight}, {duration: 150, queue: false}
+                $hideUl.animate {height: 'hide'}, {duration: speed, queue: false}
+                App.taskListView.$el.animate {height: newHeight}, {duration: speed, queue: false}
 
             else
-                $ul.toggle()
+                $hideUl.hide()
+
+            App.taskListView.showAllTasks(animate)
+            App.calendarPageView.showAllEvents(animate)
+            this.currentClassID = null
+
+        openClass: (classID, animate, $listItem) ->
+
+            # Find divs to close and open. Close item is null if nothing is open
+            $toCloseItem = if this.currentClassID then $(".class-list-item[data-classid='#{this.currentClassID}']") else null
+            $toOpenItem = if $listItem then $listItem else $(".class-list-item[data-classid='#{classID}']")
+
+            # Find Subnavs
+            if $toCloseItem
+                $closeUl = $toCloseItem.find('.class-sublist')
+
+            $openUl = $toOpenItem.find('.class-sublist')
+
+            if animate
+                speed = 150
+
+                ## find height to animate
+                # TODO do this without dom modification
+                if $toCloseItem
+                    $closeUl.hide()
+                $openUl.show()
                 newHeight = this.computeTaskHeight()
-                this.$tasks.height(newHeight)
+                $openUl.hide()
+                if $toCloseItem
+                    $closeUl.show()
 
 
-        initialize: () ->
+                # actually animate
+                if $toCloseItem
+                    $closeUl.animate {height: 'hide'}, {duration: speed, queue: false}
+                $openUl.animate {height: 'toggle'}, {duration: speed, queue: false}
+                App.taskListView.$el.animate {height: newHeight}, {duration: speed, queue: false}
 
-            ##### Handling Class List
+            else
+                if $toCloseItem
+                    $closeUl.hide()
+                $openUl.show()
+                this.setHeight()
+
+            App.taskListView.filterTasks(classID, animate)
+            App.calendarPageView.filterEvents(classID, animate)
+            this.currentClassID = classID
+
+        initialize: (data) ->
+            ##### Handling Calendar ####
+            App.calendarPageView = new CalendarPageView(data.months)
+
+            ##### Handling Class List ####
 
             ## Populate classes
             this.classCollection = new ClassCollection()
-            this.classCollection.add([
-                { id: '1', fullName: 'User Centered Research and Evaluation', shortName: ' UCRE' },
-                { id: '2', fullName: 'Cognitive Modelling', shortName: 'CogMod' },
-                { id: '3', fullName: 'Evolution & History of Life', shortName: 'Evolution' },
-                { id: '4', fullName: 'Entrepreneurship for CS', shortName: 'Entrepr' },
-                { id: '5', fullName: 'Interpretation and Argument', shortName: 'Interp' },
-            ]);
-
-            # Compile class list template and put in class list container
-            classListView = new ClassListView(this.classCollection)
+            this.classCollection.add(data.classes)
+            App.classListView = new ClassListView(this.classCollection)
 
 
-
-            ## Task List Handling
+            #### Handling Task List ####
             this.taskCollection = new TaskCollection()
 
             ## When a task is added, put it in the correct class
-            #tempClassCollection = this.classCollection
-            #this.taskCollection.on "add", (task) ->
+            tempClassCollection = this.classCollection
+            this.taskCollection.on "add", (task) ->
 
-            #    # get classModel with the classID
-            #    classModel = tempClassCollection.get(task.get('classID'))
+                # get classModel with the classID
+                classModel = tempClassCollection.get(task.get('classID'))
 
-            #    # add task to classes task list
-            #    classModel.addTask(task)
+                # add task to classes task list
+                classModel.addTask(task)
 
-            #    # add shortName to task to display in tag
-            #    shortName = classModel.get('shortName')
-            #    task.set('shortName', shortName)
+                # add shortName to task to display in tag
+                shortName = classModel.get('shortName')
+                task.set('shortName', shortName)
 
-            this.taskCollection.add([
-                { id: '1', classID: '1', taskName: 'Assignment #4', dueDate: 'Wed 10/17, 11am', status: 'active', checked: false },
-                { id: '2', classID: '4', taskName: 'SS HW #3', dueDate: 'Thu 10/18 in class', status: 'active', checked: false },
-                { id: '3', classID: '3', taskName: 'Read Ch. 11, 12', dueDate: 'Thu 10/18', status: 'active', checked: false },
-                { id: '4', classID: '2', taskName: 'Unit 1', dueDate: 'Tues 10/16 in class', status: 'active', checked: false },
-                { id: '5', classID: '2', taskName: 'SS HW #2', dueDate: 'Thu 10/11 in class', status: 'active', checked: false },
-                { id: '6', classID: '5', taskName: 'Assignment #3', dueDate: 'Wed 10/10, 11am', status: 'pending grade', checked: true }
-            ])
+            this.taskCollection.add(data.tasks)
 
-            taskListView = new TaskListView(this.taskCollection)
+            App.taskListView = new TaskListView(this.taskCollection)
 
             #set initial height
-            this.$tasks.height this.computeTaskHeight()
+            this.setHeight()
 
-    return SidebarView
+            $(window).resize ->
+                App.mainView.setHeight()
+
+
+    return MainView

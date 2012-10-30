@@ -18,7 +18,6 @@ define [
        #    url = Backbone.history.getFragment()
        #    _gaq.push(['_trackPageview', "/#{url}"])
 
-
     initialize = ->
         router = new Router
         Backbone.history.start()

@@ -77,7 +77,6 @@ body {
                 width: @colorcode-width;
             }
             .class-list-item-text {
-                //margin-left: @colorcode-width;
             }
 
             /* sublist that expands */
@@ -269,6 +268,22 @@ body {
 
 }
 
+.fullName {
+}
+.shortName {
+    display: none;
+}
+
+@media screen and (min-width: 0px) and (max-width: 900px) {
+
+    .fullName {
+        display: none;
+    }
+    .shortName {
+        display: block;
+    }
+}
+
 
 
 /* --ELEMENTs MIXINS --------------------------------------------------------------------------------
@@ -309,3 +324,4 @@ body {
   .pull(2);
 
 */
+
