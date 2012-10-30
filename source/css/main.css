@@ -146,6 +146,9 @@ body {
   left: 0;
   width: 15px;
 }
+#side-col .class-list-container .class-list-item .class-list-item-text {
+  white-space: nowrap;
+}
 #side-col .class-list-container .class-list-item ul.class-sublist {
   display: none;
 }
