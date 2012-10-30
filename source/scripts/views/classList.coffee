@@ -21,7 +21,6 @@ define [
             this.$el.html compiledTemplate
 
         classSubPageClicked: (e) ->
-            console.log $(e.target)
             e.stopPropagation()
 
         classItemClicked: (e) ->
