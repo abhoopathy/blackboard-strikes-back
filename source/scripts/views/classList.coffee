@@ -12,12 +12,17 @@ define [
         el: $('.class-list-container')
 
         events: {
-            'click .class-list-item-text': 'classItemClicked'
+            'click .class-list-item > ul > li > a': 'classSubPageClicked'
+            'click .class-list-item': 'classItemClicked'
         }
 
         render: ->
             compiledTemplate = ClassListTemplate {classes: this.collection.toJSON() }
             this.$el.html compiledTemplate
+
+        classSubPageClicked: (e) ->
+            console.log $(e.target)
+            e.stopPropagation()
 
         classItemClicked: (e) ->
             $listItem = $(e.target).closest('.class-list-item')

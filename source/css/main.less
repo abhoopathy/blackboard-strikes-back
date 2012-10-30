@@ -16,6 +16,8 @@
 .color4 { background-color: @colorcode-4; }
 .color5 { background-color: @colorcode-5; }
 
+@link-color: @colorcode-1;
+
 @line-border-color: lighten(grey,20%);
 
 * {
@@ -24,6 +26,15 @@
 body {
     background-color: lightblue;
     color: lighten(#313131,10%);
+}
+
+a {
+    color: lighten(#313131,10%);
+    text-decoration: none;
+    &:hover {
+        color: @link-color;
+        text-decoration: underline;
+    }
 }
 
 @outside-margin: 25px;
@@ -83,8 +94,13 @@ body {
             /* sublist that expands */
             ul.class-sublist {
                 display: none;
+                margin-left: 8px;
                 li {
+                    margin-top: 8px;
                 }
+            }
+            &:hover {
+                background-color: darken(white, 3%);
             }
         }
     }

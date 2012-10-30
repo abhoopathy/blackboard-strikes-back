@@ -80,6 +80,14 @@ body {
   background-color: lightblue;
   color: #4b4b4b;
 }
+a {
+  color: #4b4b4b;
+  text-decoration: none;
+}
+a:hover {
+  color: #3b8183;
+  text-decoration: underline;
+}
 .app-wrapper {
   position: absolute;
   top: 25px;
@@ -151,6 +159,13 @@ body {
 }
 #side-col .class-list-container .class-list-item ul.class-sublist {
   display: none;
+  margin-left: 8px;
+}
+#side-col .class-list-container .class-list-item ul.class-sublist li {
+  margin-top: 8px;
+}
+#side-col .class-list-container .class-list-item:hover {
+  background-color: #f7f7f7;
 }
 #side-col .task-list-container {
   overflow-y: auto;

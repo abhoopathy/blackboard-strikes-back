@@ -5,4 +5,5 @@
         .class-list-item-text.shortName= klass.shortName
         ul.class-sublist
             - each section in klass.sections
-                li= section.name
+                li
+                    a(href='#')= section.name
