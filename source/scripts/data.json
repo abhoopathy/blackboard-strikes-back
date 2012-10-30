@@ -112,26 +112,67 @@
                 "days": "31",
                 "startsOn": "1",
                 "events": [
+                ],
+                "reoccuring": [
                     {
-                        "id": "1",
                         "classID": "1",
-                        "name": "Office Hours",
-                        "day": "11",
-                        "time": "5pm"
+                        "name": "Lecture",
+                        "day": 1,
+                        "time": 900
                     },
                     {
-                        "id": "2",
                         "classID": "2",
-                        "name": "Office Hours",
-                        "day": "12",
-                        "time": "5pm"
+                        "name": "Lecture",
+                        "day": 1,
+                        "time": 1200
                     },
                     {
-                        "id": "3",
+                        "classID": "3",
+                        "name": "Lecture",
+                        "day": 2,
+                        "time": 1200
+                    },
+                    {
+                        "classID": "4",
+                        "name": "Lecture",
+                        "day": 2,
+                        "time": 1320
+                    },
+                    {
+                        "classID": "1",
+                        "name": "Recitation",
+                        "day": 5,
+                        "time": 1500
+                    },
+                    {
+                        "classID": "1",
+                        "name": "Lecture",
+                        "day": 3,
+                        "time": 900
+                    },
+                    {
                         "classID": "2",
-                        "name": "Exam Review",
-                        "day": "1",
-                        "time": "10pm"
+                        "name": "Lecture",
+                        "day": 3,
+                        "time": 1200
+                    },
+                    {
+                        "classID": "3",
+                        "name": "Lecture",
+                        "day": 4,
+                        "time": 1200
+                    },
+                    {
+                        "classID": "4",
+                        "name": "Lecture",
+                        "day": 4,
+                        "time": 1320
+                    },
+                    {
+                        "classID": "5",
+                        "name": "Lecture",
+                        "day": 3,
+                        "time": 1500
                     }
                 ]
             }
