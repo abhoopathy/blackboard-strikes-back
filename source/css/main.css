@@ -100,6 +100,7 @@ body {
 }
 #side-col .class-list-container {
   overflow-y: auto;
+  overflow-x: hidden;
   max-height: 80%;
   background-color: white;
   box-shadow: #808080 0 1px 5px;
@@ -191,8 +192,7 @@ body {
 #side-col .task-list-container .task-list-item .task-list-item-box {
   width: 15px;
   height: 15px;
-  float: left;
-  display: inline;
+  position: absolute;
   border: 1px solid #b3b3b3;
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
@@ -200,22 +200,25 @@ body {
   -moz-background-clip: padding;
   -webkit-background-clip: padding-box;
   background-clip: padding-box;
-  margin-right: 8px;
 }
 #side-col .task-list-container .task-list-item .task-list-item-text {
+  margin-left: 23px;
   float: left;
 }
 #side-col .task-list-container .task-list-item .task-list-item-text .task-list-item-name {
   font-size: 1em;
   letter-spacing: 0em;
   font-weight: bold;
+  white-space: nowrap;
 }
 #side-col .task-list-container .task-list-item .task-list-item-text .task-list-item-subtext {
+  white-space: nowrap;
   font-size: 0.85em;
   margin-top: .2em;
 }
 #side-col .task-list-container .task-list-item .task-list-item-tag {
-  float: right;
+  position: absolute;
+  right: 8px;
   color: white;
   font-size: .8em;
   font-weight: bold;
@@ -323,11 +326,123 @@ body {
   display: none;
 }
 @media screen and (min-width: 0px) and (max-width: 900px) {
+  body {
+    font-size: 11px;
+  }
+  .page.calendar {
+    top: 50px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+  }
+  .page.calendar .cal-cell {
+    padding: 0px;
+  }
+  .page.calendar .cal-cell.today {
+    background-color: #f2f2f2;
+  }
+  .page.calendar .cal-cell .cal-event {
+    margin-top: 0em;
+    padding: 1px;
+    -webkit-border-radius: 0px;
+    -moz-border-radius: 0px;
+    border-radius: 0px;
+    -moz-background-clip: padding;
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
+  }
   .fullName {
     display: none;
   }
   .shortName {
     display: block;
+  }
+  #side-col .class-list-container {
+    -webkit-border-top-right-radius: 0;
+    -webkit-border-bottom-right-radius: 0;
+    -webkit-border-bottom-left-radius: 0px;
+    -webkit-border-top-left-radius: 5px;
+    -moz-border-radius-topright: 0;
+    -moz-border-radius-bottomright: 0;
+    -moz-border-radius-bottomleft: 0px;
+    -moz-border-radius-topleft: 5px;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0px;
+    border-top-left-radius: 5px;
+    -moz-background-clip: padding;
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
+    font-size: 1em;
+  }
+  #side-col .class-list-container .class-list-item {
+    border-top: 1px solid #b3b3b3;
+    padding: 10px;
+    position: relative;
+    padding-left: 20px;
+    cursor: pointer;
+    /* sublist that expands */
+  
+  }
+  #side-col .class-list-container .class-list-item:first-child {
+    border-top: none;
+  }
+  #side-col .class-list-container .class-list-item .class-list-item-colorcode {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 15px;
+  }
+  #side-col .class-list-container .class-list-item ul.class-sublist {
+    display: none;
+  }
+  #side-col .task-list-container {
+    margin-top: 0px;
+    -webkit-border-top-right-radius: 0;
+    -webkit-border-bottom-right-radius: 0;
+    -webkit-border-bottom-left-radius: 5px;
+    -webkit-border-top-left-radius: 0px;
+    -moz-border-radius-topright: 0;
+    -moz-border-radius-bottomright: 0;
+    -moz-border-radius-bottomleft: 5px;
+    -moz-border-radius-topleft: 0px;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 5px;
+    border-top-left-radius: 0px;
+    -moz-background-clip: padding;
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
+    border-top-width: 2px;
+  }
+  #side-col .task-list-container .task-list-item {
+    padding: 10px;
+  }
+  #side-col .task-list-container .task-list-item .task-list-item-box {
+    width: 12px;
+    height: 12px;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    border-radius: 2px;
+    -moz-background-clip: padding;
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
+  }
+  #side-col .task-list-container .task-list-item .task-list-item-text {
+    margin-left: 20px;
+  }
+  #side-col .task-list-container .task-list-item .task-list-item-tag {
+    text-indent: -9999px;
+    right: 5px;
+    width: 3px;
+    height: 3px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    -moz-background-clip: padding;
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
   }
 }
 /* --ELEMENTs MIXINS --------------------------------------------------------------------------------
