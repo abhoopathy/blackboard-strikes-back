@@ -1,0 +1,140 @@
+{
+    "classes": [
+        {
+            "id": "1",
+            "fullName": "User Centered Research and Evaluation",
+            "shortName": "UCRE",
+            "sections": [
+                { "name": "Syllabus" }, 
+                { "name": "Course Documents" },
+                { "name": "People" },
+                { "name": "Lectures" },
+                { "name": "Exam Review" }
+            ]
+        },
+        {
+            "id": "2",
+            "fullName": "Cognitive Modelling",
+            "shortName": "CogMod",
+            "sections": [
+                { "name": "Syllabus" },
+                { "name": "People" }
+            ]
+        },
+        {
+            "id": "3",
+            "fullName": "Evolution & History of Life",
+            "shortName": "Evolution",
+            "sections": [
+                { "name": "Syllabus" },
+                { "name": "Course Documents" },
+                { "name": "People" }
+            ]
+        },
+        {
+            "id": "4",
+            "fullName": "Entrepreneurship for CS",
+            "shortName": "Entrepr",
+            "sections": [
+                { "name": "Syllabus" },
+                { "name": "Course Documents" },
+                { "name": "People" },
+                { "name": "People" }
+            ]
+        },
+        {
+            "id": "5",
+            "fullName": "Interpretation and Argument",
+            "shortName": "Interp",
+            "sections": [
+                { "name": "Syllabus" },
+                { "name": "Course Documents" },
+                { "name": "People" },
+                { "name": "Links" }
+            ]
+        }
+    ],
+
+    "tasks": [
+        {
+            "id": "1",
+            "classID": "1",
+            "taskName": "Assignment #4",
+            "dueday": "Wed 10/17, 11am",
+            "status": "active",
+            "checked": false
+        },
+        {
+            "id": "2",
+            "classID": "4",
+            "taskName": "SS HW #3",
+            "dueday": "Thu10/18 in class",
+            "status": "active",
+            "checked": false
+        },
+        {
+            "id": "3",
+            "classID": "3",
+            "taskName": "Read Ch.11, 12",
+            "dueday": "Thu10/18",
+            "status": "active",
+            "checked": false
+        },
+        {
+            "id": "4",
+            "classID": "2",
+            "taskName": "Unit1",
+            "dueday": "Tues10/16 in class",
+            "status": "active",
+            "checked": false
+        },
+        {
+            "id": "5",
+            "classID": "2",
+            "taskName": "SS HW #2",
+            "dueday": "Thu10/11 in class",
+            "status": "active",
+            "checked": false
+        },
+        {
+            "id": "6",
+            "classID": "5",
+            "taskName": "Assignment #3",
+            "dueday": "Wed 10/10, 11am",
+            "status": "pending grade",
+            "checked": true
+        }
+    ],
+
+    "months": {
+            "10": {
+                "id": 10,
+                "name": "October",
+                "days": "31",
+                "startsOn": "1",
+                "events": [
+                    {
+                        "id": "1",
+                        "classID": "1",
+                        "name": "Office Hours",
+                        "day": "11",
+                        "time": "5pm"
+                    },
+                    {
+                        "id": "2",
+                        "classID": "2",
+                        "name": "Office Hours",
+                        "day": "12",
+                        "time": "5pm"
+                    },
+                    {
+                        "id": "3",
+                        "classID": "2",
+                        "name": "Exam Review",
+                        "day": "1",
+                        "time": "10pm"
+                    }
+                ]
+            }
+    }
+}
