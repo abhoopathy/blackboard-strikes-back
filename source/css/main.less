@@ -1,24 +1,21 @@
 @import "elements.less";
 @import "grid.less";
 @import "reset.less";
+@import "mixins.less";
 
-@total-width: 100%;
+.color1 { background-color: #3b8183; }
+.color2 { background-color: #ed303c; }
+.color3 { background-color: #f5634a; }
+.color4 { background-color: #fad089; }
+.color5 { background-color: #a0cd64; }
 
+@link-color: #3b8183;
 @text-color: #313131;
-@colorcode-1: #3b8183;
-@colorcode-2: #ed303c;
-@colorcode-3: #f5634a;
-@colorcode-4: #fad089;
-@colorcode-5: #a0cd64;
-.color1 { background-color: @colorcode-1; }
-.color2 { background-color: @colorcode-2; }
-.color3 { background-color: @colorcode-3; }
-.color4 { background-color: @colorcode-4; }
-.color5 { background-color: @colorcode-5; }
-
-@link-color: @colorcode-1;
-
 @line-border-color: lighten(grey,20%);
+
+@outside-margin: 30px;
+@toolbar-height: 45px;
+@toolbar-bottom: 10px;
 
 * {
 }
@@ -38,7 +35,6 @@ a {
     }
 }
 
-@outside-margin: 20px;
 .app-wrapper {
     position: absolute;
     top: @outside-margin;
@@ -46,157 +42,12 @@ a {
     right: @outside-margin;
     bottom: @outside-margin;
 }
-#side-col {
-    position: absolute;
-    top: @toolbar-height + 20px;
-    width: 20%;
-    left: 0;
-    bottom: 20px;
-
-    /* For the Class List in top left -------------------------- */
-    .class-list-container {
-        overflow-y: auto;
-        overflow-x: hidden;
-        max-height: 80%;
-
-        .whitebox(5px);
-        .border-radius(0,0,5px,5px);
-        -webkit-mask-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAA5JREFUeNpiYGBgAAgwAAAEAAGbA+oJAAAAAElFTkSuQmCC);
-        border-top: 1px solid @line-border-color;
-        border-left: 1px solid @line-border-color;
-        border-bottom: 1px solid @line-border-color;
-
-        font-size: 1.1em;
-        letter-spacing: -.07em;
-        font-weight: bold;
-
-        .class-list-item {
-            @colorcode-width: 15px;
-            border-top: 1px solid @line-border-color;
-            padding: 10px;
-            position: relative;
-            padding-left: @colorcode-width + 10px;
-            cursor: pointer;
-
-            &:first-child {
-                border-top: none;
-            }
-            .class-list-item-colorcode {
-                position: absolute;
-                top: 0;
-                bottom: 0;
-                left: 0;
-                width: @colorcode-width;
-            }
-            .class-list-item-text {
-                white-space: nowrap;
-            }
-
-            /* sublist that expands */
-            ul.class-sublist {
-                display: none;
-                margin-left: 8px;
-                li {
-                    margin-top: 8px;
-                }
-            }
-            &:hover {
-                background-color: darken(white, 3%);
-            }
-        }
-    }
-
-    /* For the Task List --------------------------------------- */
-    .task-list-container {
-        overflow-y: auto;
-
-        margin-top: 10px;
-
-        .whitebox(5px);
-        border-top: 1px solid @line-border-color;
-        border-left: 1px solid @line-border-color;
-        border-bottom: 1px solid @line-border-color;
-        -webkit-mask-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAA5JREFUeNpiYGBgAAgwAAAEAAGbA+oJAAAAAElFTkSuQmCC);
-        .border-radius(0,0,5px,5px);
-
-
-        .task-list-item {
-            @box-size: 15px;
-
-            border-top: 1px solid @line-border-color;
-            padding: 15px;
-            position: relative;
-            overflow: hidden;
-
-            &:first-child {
-                border-top: none;
-            }
-
-            &.checked {
-                .opacity(.5);
-                .task-list-item-box {
-                    //TODO get check to appear here.
-                }
-            }
-
-            .task-list-item-box {
-                width: @box-size;
-                height: @box-size;
-                position: absolute;
-                border: 1px solid @line-border-color;
-                .rounded(3px);
-            }
-            .task-list-item-text {
-                margin-left: @box-size + 8px;
-                float: left;
-                .task-list-item-name {
-                    font-size: 1em;
-                    letter-spacing: -.0em;
-                    font-weight: bold;
-                    white-space: nowrap;
-                }
-                .task-list-item-subtext {
-                    white-space: nowrap;
-                    font-size: 0.85em;
-                    margin-top: .2em;
-                }
-            }
-            .task-list-item-tag {
-                position: absolute;
-                right: 8px;
-                color: white;
-                font-size: .8em;
-                font-weight: bold;
-                padding: 3px;
-                .rounded(3px);
-            }
-        }
-    }
-}
-
-@toolbar-height: 40px;
-.toolbar {
-    .gradient( #333, darken(#333, 5%), lighten(#333, 15%));
-    //.border-radius(5px,0,0,5px);
-    .rounded(5px);
-    top: 0px;
-    height: @toolbar-height;
-    left: 21%;
-    right: @outside-margin;
-    background-color: black;
-    .content {
-        position: static;
-        //padding: 10px;
-    }
-}
-
-
 #main-col {
     .whitebox(12px);
     .rounded(5px);
     position: absolute;
     width: 80%;
-    top: @toolbar-height + 10px;
+    top: @toolbar-height + @toolbar-bottom;
     bottom: 0px;
     //right: 0px;
     left: 20%;
@@ -204,250 +55,7 @@ a {
     }
 }
 
-.page {
-
-&.calendar {
-    @calendar-margin: 15px;
-    position: absolute;
-    top: @calendar-margin;
-    left: @calendar-margin;
-    right: @calendar-margin;
-    bottom: @calendar-margin;
-    border-top: 1px solid @line-border-color;
-    border-left: 1px solid @line-border-color;
-    .border-box;
-    overflow: hidden;
-
-    .cal-cell {
-        padding: 4px;
-        border-bottom: 1px solid @line-border-color;
-        border-right: 1px solid @line-border-color;
-        float: left;
-        width: 100%/7;
-        height: 100%/5;
-        .border-box;
-        overflow-y: auto;
-
-        &.today {
-            background-color: darken(white, 5%);
-        }
-
-        .cal-event {
-            margin-top: .2em;
-            padding: 3px;
-            .rounded(3px);
-            overflow: hidden;
-            color: white;
-            font-size: .85em;
-            white-space: nowrap;
-            .cal-event-time {
-                font-weight: bold;
-                margin-right: .3em;
-            }
-        }
-    }
-}
-
-}
-
-
-/* Mixins ---------------------------------------------------------------------------*/
-
-.whitebox(@size) {
-    background-color: white;
-    //border: 1px solid lighten(grey, 20%);
-    box-shadow: lighten(black, 50%) 0 1px @size;
-}
-
-.border-box() {
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-size-sizing: border-box;
-}
-
-
-/* Custom buttons -------------------------------------------------------------------*/
-
-.button (light_text, @basecolor: #5291CB, @corner-radius: 3px) {
-  cursor: pointer;
-  color: white;
-  text-shadow: 0em -0.1em darken(@basecolor, 20%);
-
-  background-color: @basecolor;
-  border: 1px solid darken(@basecolor, 15%);
-  .gradient( @basecolor, darken(@basecolor, 5%), lighten(@basecolor, 5%));
-  padding: 10px;
-  .rounded(@corner-radius);
-  box-shadow: lighten(@basecolor, 20%) 0 1px 1px inset;
-
-  &:active {
-    .gradient( @basecolor, @basecolor, darken(@basecolor, 10%));
-    box-shadow: darken(@basecolor, 20%) 0 1px 0 inset;
-    color: white;
-    text-shadow: 0em 0.1em darken(@basecolor, 20%);
-  }
-
-}
-
-.fullName {
-}
-.shortName {
-    display: none;
-}
-
-@media screen and (min-width: 0px) and (max-width: 900px) {
-    body {
-    }
-
-    .app-wrapper {
-        @outside-margin: 15px;
-        top: @outside-margin;
-        left: @outside-margin;
-        right: @outside-margin;
-        bottom: @outside-margin;
-    }
-
-    @toolbar-height: 30px;
-    .toolbar {
-        height: @toolbar-height;
-    }
-
-    .page {
-        &.calendar {
-            @calendar-margin: 0px;
-            top: @toolbar-height + @calendar-margin;
-            left: @calendar-margin;
-            right: @calendar-margin;
-            bottom: @calendar-margin;
-
-            .cal-cell {
-                padding: 0px;
-
-                &.today {
-                    background-color: darken(white, 5%);
-                }
-
-                .cal-event {
-                    margin-top: 0em;
-                    padding: 1px;
-                    .rounded(0px);
-                }
-            }
-        }
-    }
-
-    .fullName {
-        display: none;
-    }
-    .shortName {
-        display: block;
-    }
-
-    #side-col {
-        top: @toolbar-height + 1px;
-
-        .class-list-container {
-            .border-radius(0,0,0px,5px);
-            font-size: 1em;
-
-            .class-list-item {
-                @colorcode-width: 15px;
-                border-top: 1px solid @line-border-color;
-                padding: 10px;
-                position: relative;
-                padding-left: @colorcode-width + 5px;
-                cursor: pointer;
-
-                &:first-child {
-                    border-top: none;
-                }
-                .class-list-item-colorcode {
-                    position: absolute;
-                    top: 0;
-                    bottom: 0;
-                    left: 0;
-                    width: @colorcode-width;
-                }
-                .class-list-item-text {
-                }
-
-                /* sublist that expands */
-                ul.class-sublist {
-                    display: none;
-                    li {
-                    }
-                }
-            }
-        }
-        .task-list-container {
-
-            margin-top: 0px;
-            .border-radius(0,0,5px,0px);
-            border-top-width: 2px;
-
-            .task-list-item {
-                @box-size: 12px;
-                padding: 10px;
-
-                .task-list-item-box {
-                    width: @box-size;
-                    height: @box-size;
-                    .rounded(2px);
-                }
-                .task-list-item-text {
-                    margin-left: @box-size + 8px;
-                }
-                .task-list-item-tag {
-                    text-indent: -9999px;
-                    @circle-size: 3px;
-                    right: 5px;
-                    width: @circle-size;
-                    height: @circle-size;
-                    .rounded(@circle-size);
-                }
-            }
-        }
-    }
-}
-
-
-
-/* --ELEMENTs MIXINS --------------------------------------------------------------------------------
-
-    .gradient( @color: #F5F5F5, @start: #EEE, @stop: #FFF )
-    .bw-gradient( @color: #F5F5F5, @start: 0, @stop: 255 )
-    .bordered( @top-color: #EEE, @right-color: #EEE, @bottom-color: #EEE, @left-color: #EEE )
-    .drop-shadow( @x-axis: 0, @y-axis: 1px, @blur: 2px, @alpha: 0.1 )
-    .rounded( @radius: 2px )
-    .border-radius( @topright: 0, @bottomright: 0, @bottomleft: 0, @topleft: 0 )
-    .opacity( @opacity: 0.5 )
-    .transition-duration( @duration: 0.2s )
-    .rotation( @deg:5deg ){
-    .scale( @ratio:1.5 ){
-    .transition( @duration:0.2s, @ease:ease-out )
-    .inner-shadow( @horizontal:0, @vertical:1px, @blur:2px, @alpha: 0.4 )
-    .box-shadow( @arguments )
-    .columns( @colwidth: 250px, @colcount: 0, @colgap: 50px, @columnRuleColor: #EEE, @columnRuleStyle: solid,
-      @columnRuleWidth: 1px )
-    .translate( @x:0, @y:0 )
-
-
------GRID MIXINS ------------------------------------------------------------------------------------
-
-  Set these variables (defaults below, 12 col 960px grid)
-  @column-width: 60;
-  @gutter-width: 20;
-  @columns: 12;
-
-  If you want a fluid grid
-  @total-width: 100%;
-
-  Mixins
-  .column(3);
-  .row(9)
-    .column(3,9);
-  .push(2);
-  .pull(2);
-
-*/
-
+@import "sidebar.less";
+@import "toolbar.less";
+@import "calendar.less";
+@import "compact.less";
