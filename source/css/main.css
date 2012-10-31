@@ -97,7 +97,7 @@ a:hover {
 }
 #side-col {
   position: absolute;
-  top: 51px;
+  top: 60px;
   width: 20%;
   left: 0;
   bottom: 20px;
@@ -253,23 +253,14 @@ a:hover {
   background: -webkit-gradient(linear, left bottom, left top, color-stop(0, #262626), color-stop(1, #595959));
   background: -ms-linear-gradient(bottom, #262626, #595959);
   background: -moz-linear-gradient(center bottom, #262626 0%, #595959 100%);
-  -webkit-border-top-right-radius: 5px;
-  -webkit-border-bottom-right-radius: 0;
-  -webkit-border-bottom-left-radius: 0;
-  -webkit-border-top-left-radius: 5px;
-  -moz-border-radius-topright: 5px;
-  -moz-border-radius-bottomright: 0;
-  -moz-border-radius-bottomleft: 0;
-  -moz-border-radius-topleft: 5px;
-  border-top-right-radius: 5px;
-  border-bottom-right-radius: 0;
-  border-bottom-left-radius: 0;
-  border-top-left-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
   -moz-background-clip: padding;
   -webkit-background-clip: padding-box;
   background-clip: padding-box;
   top: 0px;
-  height: 50px;
+  height: 40px;
   left: 21%;
   right: 20px;
   background-color: black;
@@ -288,13 +279,13 @@ a:hover {
   background-clip: padding-box;
   position: absolute;
   width: 80%;
-  top: 0px;
+  top: 50px;
   bottom: 0px;
   left: 20%;
 }
 .page.calendar {
   position: absolute;
-  top: 65px;
+  top: 15px;
   left: 15px;
   right: 15px;
   bottom: 15px;

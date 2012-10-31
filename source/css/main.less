@@ -48,7 +48,7 @@ a {
 }
 #side-col {
     position: absolute;
-    top: @toolbar-height + 1px;
+    top: @toolbar-height + 20px;
     width: 20%;
     left: 0;
     bottom: 20px;
@@ -174,10 +174,11 @@ a {
     }
 }
 
-@toolbar-height: 50px;
+@toolbar-height: 40px;
 .toolbar {
     .gradient( #333, darken(#333, 5%), lighten(#333, 15%));
-    .border-radius(5px,0,0,5px);
+    //.border-radius(5px,0,0,5px);
+    .rounded(5px);
     top: 0px;
     height: @toolbar-height;
     left: 21%;
@@ -195,7 +196,7 @@ a {
     .rounded(5px);
     position: absolute;
     width: 80%;
-    top: 0px;
+    top: @toolbar-height + 10px;
     bottom: 0px;
     //right: 0px;
     left: 20%;
@@ -208,7 +209,7 @@ a {
 &.calendar {
     @calendar-margin: 15px;
     position: absolute;
-    top: @toolbar-height + @calendar-margin;
+    top: @calendar-margin;
     left: @calendar-margin;
     right: @calendar-margin;
     bottom: @calendar-margin;
