@@ -1,0 +1,49 @@
+.page {
+&.calendar {
+    @calendar-margin: 15px;
+    position: absolute;
+    top: @calendar-margin;
+    left: @calendar-margin;
+    right: @calendar-margin;
+    bottom: @calendar-margin;
+    border-top: 1px solid @line-border-color;
+    border-left: 1px solid @line-border-color;
+    .border-box;
+    overflow: hidden;
+
+    .cal-cell {
+        padding: 4px;
+        border-bottom: 1px solid @line-border-color;
+        border-right: 1px solid @line-border-color;
+        float: left;
+        width: 100%/7;
+        height: 100%/5;
+        .border-box;
+        overflow-y: auto;
+
+        &.today {
+            background-color: darken(white, 5%);
+        }
+
+        .cal-cell-number {
+            color: lighten(@text-color, 20%);
+            font-size: .9em;
+         }
+
+        .cal-event {
+            margin-top: .2em;
+            padding: 3px;
+            .rounded(3px);
+            overflow: hidden;
+            color: white;
+            font-size: .85em;
+            white-space: nowrap;
+            .cal-event-time {
+                font-weight: bold;
+                margin-right: .3em;
+            }
+        }
+    }
+}
+
+}

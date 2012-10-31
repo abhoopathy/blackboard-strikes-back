@@ -1,0 +1,129 @@
+@media screen and (min-width: 0px) and (max-width: 900px) {
+    body {
+    }
+
+    #main-col {
+        .border-radius(0,0,0,0);
+        top: @toolbar-height;
+    }
+
+    .app-wrapper {
+        @outside-margin: 15px;
+        top: @outside-margin;
+        left: @outside-margin;
+        right: @outside-margin;
+        bottom: @outside-margin;
+    }
+
+    @toolbar-height: 30px;
+    .toolbar {
+        height: @toolbar-height;
+        .border-radius(5,0,0,5);
+    }
+
+    .page {
+        &.calendar {
+            @calendar-margin: 0px;
+            top: @calendar-margin;
+            left: @calendar-margin;
+            right: @calendar-margin;
+            bottom: @calendar-margin;
+
+            .cal-cell {
+                padding: 3px;
+
+                &.today {
+                    background-color: darken(white, 5%);
+                }
+
+                .cal-cell-number {
+                    font-size: .8em;
+                    margin-bottom: 3px;
+                }
+
+                .cal-event {
+                    margin-top: 0em;
+                    padding: 1px;
+                    .rounded(0px);
+                }
+            }
+        }
+    }
+
+    .fullName {
+        display: none;
+    }
+    .shortName {
+        display: block;
+    }
+
+    #side-col {
+        top: @toolbar-height;
+        bottom: 0px;
+
+        .class-list-container {
+            .border-radius(0,0,0,0);
+            font-size: 1em;
+
+            .class-list-item {
+                @colorcode-width: 15px;
+                //border-top: 1px solid @line-border-color;
+                padding: 10px;
+                position: relative;
+                padding-left: @colorcode-width + 5px;
+                cursor: pointer;
+
+                &:first-child {
+                    border-top: none;
+                }
+                .class-list-item-colorcode {
+                    position: absolute;
+                    top: 0;
+                    bottom: 0;
+                    left: 0;
+                    width: @colorcode-width;
+                }
+                .class-list-item-text {
+                    font-size: .85em;
+                }
+
+                /* sublist that expands */
+                ul.class-sublist {
+                    display: none;
+                    li {
+                    }
+                }
+            }
+        }
+        .task-list-container {
+
+            margin-top: 0px;
+            .border-radius(0,0,0,0);
+            border-top-width: 2px;
+
+            .task-list-item {
+                @box-size: 12px;
+                padding: 10px;
+
+                .task-list-item-box {
+                    width: @box-size;
+                    height: @box-size;
+                    .rounded(2px);
+                }
+                .task-list-item-text {
+                    margin-left: @box-size + 8px;
+                    font-size: .85em;
+                }
+                .task-list-item-tag {
+                    text-indent: -9999px;
+                    @circle-size: 3px;
+                    right: 5px;
+                    width: @circle-size;
+                    height: @circle-size;
+                    .rounded(@circle-size);
+                }
+            }
+        }
+    }
+}
+

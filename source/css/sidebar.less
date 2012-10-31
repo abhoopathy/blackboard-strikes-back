@@ -1,0 +1,134 @@
+#side-col {
+    position: absolute;
+    top: @toolbar-height + @toolbar-bottom + 10px;
+    width: 20%;
+    left: 0;
+    bottom: 20px;
+
+    /* For the Class List in top left -------------------------- */
+    .class-list-container {
+        overflow-y: auto;
+        overflow-x: hidden;
+        max-height: 80%;
+
+        .whitebox(5px);
+        .border-radius(0,0,5px,5px);
+        -webkit-mask-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAA5JREFUeNpiYGBgAAgwAAAEAAGbA+oJAAAAAElFTkSuQmCC);
+        border-top: 1px solid @line-border-color;
+        border-left: 1px solid @line-border-color;
+        border-bottom: 1px solid @line-border-color;
+
+        font-size: 1.1em;
+        letter-spacing: -.07em;
+        font-weight: bold;
+
+        .class-list-item {
+            @colorcode-width: 15px;
+            border-top: 1px solid @line-border-color;
+            padding: 10px;
+            position: relative;
+            padding-left: @colorcode-width + 10px;
+            cursor: pointer;
+
+            &:first-child {
+                border-top: none;
+            }
+            .class-list-item-colorcode {
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                left: 0;
+                width: @colorcode-width;
+            }
+            .class-list-item-text {
+                white-space: nowrap;
+            }
+
+            /* sublist that expands */
+            ul.class-sublist {
+                display: none;
+                margin-left: 8px;
+                li {
+                    margin-top: 8px;
+                }
+            }
+            &:hover {
+                background-color: darken(white, 3%);
+            }
+        }
+    }
+
+    /* For the Task List --------------------------------------- */
+    .task-list-container {
+        overflow-y: auto;
+
+        margin-top: 10px;
+
+        .whitebox(5px);
+        border-top: 1px solid @line-border-color;
+        border-left: 1px solid @line-border-color;
+        border-bottom: 1px solid @line-border-color;
+        -webkit-mask-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAA5JREFUeNpiYGBgAAgwAAAEAAGbA+oJAAAAAElFTkSuQmCC);
+        .border-radius(0,0,5px,5px);
+
+
+        .task-list-item {
+            @box-size: 15px;
+
+            border-top: 1px solid @line-border-color;
+            padding: 15px;
+            position: relative;
+            overflow: hidden;
+
+            &:first-child {
+                border-top: none;
+            }
+
+            &.checked {
+                .opacity(.5);
+                .task-list-item-box {
+                    //TODO get check to appear here.
+                }
+            }
+
+            .task-list-item-box {
+                width: @box-size;
+                height: @box-size;
+                position: absolute;
+                border: 1px solid @line-border-color;
+                .rounded(3px);
+            }
+            .task-list-item-text {
+                margin-left: @box-size + 8px;
+                float: left;
+                .task-list-item-name {
+                    font-size: 1em;
+                    letter-spacing: -.0em;
+                    font-weight: bold;
+                    white-space: nowrap;
+                }
+                .task-list-item-subtext {
+                    white-space: nowrap;
+                    font-size: 0.85em;
+                    margin-top: .2em;
+                }
+            }
+            .task-list-item-tag {
+                position: absolute;
+                right: 8px;
+                color: white;
+                font-size: .8em;
+                font-weight: bold;
+                padding: 3px;
+                .rounded(3px);
+            }
+        }
+    }
+}
+
+.fullName {
+}
+.shortName {
+    display: none;
+}
+
