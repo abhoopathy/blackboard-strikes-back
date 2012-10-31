@@ -77,7 +77,7 @@ p {
   background-color: #a0cd64;
 }
 body {
-  background-color: lightblue;
+  background-image: url('../images/bg.png');
   color: #4b4b4b;
 }
 a {
@@ -90,10 +90,10 @@ a:hover {
 }
 .app-wrapper {
   position: absolute;
-  top: 25px;
-  left: 25px;
-  right: 25px;
-  bottom: 25px;
+  top: 20px;
+  left: 20px;
+  right: 20px;
+  bottom: 20px;
 }
 #side-col {
   position: absolute;
@@ -271,7 +271,7 @@ a:hover {
   top: 0px;
   height: 50px;
   left: 21%;
-  right: 25px;
+  right: 20px;
   background-color: black;
 }
 .toolbar .content {
@@ -331,7 +331,7 @@ a:hover {
   background-clip: padding-box;
   overflow: hidden;
   color: white;
-  font-size: .8em;
+  font-size: .85em;
   white-space: nowrap;
 }
 .page.calendar .cal-cell .cal-event .cal-event-time {
