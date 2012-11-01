@@ -6,7 +6,10 @@ define [
     'jade!templates/calendar'
     'jade!templates/event'
 
-], ($, _, Backbone, CalendarTemplate, EventTemplate) ->
+    #TODO can we not have this dependency?
+    'data'
+
+], ($, _, Backbone, CalendarTemplate, EventTemplate, Data) ->
 
     CalendarPageView = Backbone.View.extend
 
@@ -98,7 +101,7 @@ define [
             eventNames = ["Office Hours", "Exam Review", "Exam", "Quiz", "Guest Lecture"]
 
             numDays = month.days
-            numClasses = App.data.classes.length
+            numClasses = Data.classes.length
 
             # Add fake events using pickRandom function
             start = month.events.length+1
@@ -148,7 +151,7 @@ define [
 
         initialize: (collection) ->
             this.collection = collection
-            currentMonthNumber = (new Date()).getMonth()+1
+            currentMonthNumber = 10#(new Date()).getMonth()+1
             this.render(currentMonthNumber)
 
 

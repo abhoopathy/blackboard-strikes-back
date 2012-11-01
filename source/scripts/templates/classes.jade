@@ -6,4 +6,4 @@
         ul.class-sublist
             - each section in klass.sections
                 li
-                    a(href='#')= section.name
+                    a(href="#class/#{klass.id}/section/#{section.link}")= section.name

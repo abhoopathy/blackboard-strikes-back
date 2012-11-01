@@ -59,7 +59,7 @@
             "id": "1",
             "classID": "1",
             "taskName": "Assignment #4",
-            "dueday": "Wed 10/17, 11am",
+            "subtext": "Wed 10/17, 11am",
             "status": "active",
             "checked": false
         },
@@ -67,7 +67,7 @@
             "id": "2",
             "classID": "4",
             "taskName": "SS HW #3",
-            "dueday": "Thu10/18 in class",
+            "subtext": "Thu10/18 in class",
             "status": "active",
             "checked": false
         },
@@ -75,7 +75,7 @@
             "id": "3",
             "classID": "3",
             "taskName": "Read Ch.11, 12",
-            "dueday": "Thu10/18",
+            "subtext": "Thu10/18",
             "status": "active",
             "checked": false
         },
@@ -83,7 +83,7 @@
             "id": "4",
             "classID": "2",
             "taskName": "Unit1",
-            "dueday": "Tues10/16 in class",
+            "subtext": "Tues10/16 in class",
             "status": "active",
             "checked": false
         },
@@ -91,7 +91,7 @@
             "id": "5",
             "classID": "2",
             "taskName": "SS HW #2",
-            "dueday": "Thu10/11 in class",
+            "subtext": "Thu10/11 in class",
             "status": "active",
             "checked": false
         },
@@ -99,7 +99,7 @@
             "id": "6",
             "classID": "5",
             "taskName": "Assignment #3",
-            "dueday": "Wed 10/10, 11am",
+            "subtext": "Wed 10/10, 11am",
             "status": "pending grade",
             "checked": true
         }

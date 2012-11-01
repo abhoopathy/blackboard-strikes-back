@@ -73,7 +73,9 @@
 
 
         .task-list-item {
+            display: block;
             @box-size: 15px;
+            color: @text-color;
 
             border-top: 1px solid @line-border-color;
             padding: 15px;
@@ -82,6 +84,10 @@
 
             &:first-child {
                 border-top: none;
+            }
+
+            &:hover {
+                background-color: darken(white, 3%);
             }
 
             &.checked {

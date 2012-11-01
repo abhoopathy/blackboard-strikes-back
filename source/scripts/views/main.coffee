@@ -9,9 +9,11 @@ define [
     'cs!collections/tasks',
     'cs!views/taskList'
 
-    'cs!views/calendarPage'
+    'cs!views/calendarPage',
 
-], ($, _, Backbone, ClassCollection, ClassListView, TaskCollection, TaskListView, CalendarPageView) ->
+    'data',
+
+], ($, _, Backbone, ClassCollection, ClassListView, TaskCollection, TaskListView, CalendarPageView, Data) ->
 
     MainView = Backbone.View.extend
 
@@ -91,14 +93,15 @@ define [
             this.currentClassID = classID
 
         initialize: () ->
+
             ##### Handling Calendar ####
-            App.calendarPageView = new CalendarPageView(App.data.months)
+            App.calendarPageView = new CalendarPageView(Data.months)
 
             ##### Handling Class List ####
 
             ## Populate classes
             this.classCollection = new ClassCollection()
-            this.classCollection.add(App.data.classes)
+            this.classCollection.add(Data.classes)
             App.classListView = new ClassListView(this.classCollection)
 
 
@@ -119,7 +122,7 @@ define [
                 shortName = classModel.get('shortName')
                 task.set('shortName', shortName)
 
-            this.taskCollection.add(App.data.tasks)
+            this.taskCollection.add(Data.tasks)
 
             App.taskListView = new TaskListView(this.taskCollection)
 

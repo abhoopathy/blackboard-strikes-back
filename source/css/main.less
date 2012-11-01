@@ -3,41 +3,43 @@
 @import "reset.less";
 @import "mixins.less";
 
-.color1 { background-color: #3b8183; }
-.color2 { background-color: #ed303c; }
-.color3 { background-color: #f5634a; }
-.color4 { background-color: #fad089; }
-.color5 { background-color: #a0cd64; }
+.color1 { background-color: lighten(#3b8183, 6%); }
+.color2 { background-color: lighten(#ed303c, 6%); }
+.color3 { background-color: lighten(#f5634a, 6%); }
+.color4 { background-color: darken(#fad089, 6%); }
+.color5 { background-color: lighten(#a0cd64, 6%); }
 
 @link-color: #3b8183;
-@text-color: #313131;
+@text-color: lighten(#313131,10%);
 @line-border-color: lighten(grey,20%);
-
 @outside-margin: 30px;
 @toolbar-height: 45px;
-@toolbar-bottom: 10px;
+@toolbar-bottom: 20px;
+
+@toolbar-color: lighten(#333, 9%);
+//@toolbar-color: #990000;
 
 * {
 }
 
 body {
-    //background-color: lightblue;
-    background-image: url('../images/bg.png');
+    background-color: lighten(#464646, 60%);
+    //background-image: url('../images/bg.png');
     color: lighten(#313131,10%);
 }
 
 a {
-    color: lighten(#313131,10%);
+    color: @link-color;
     text-decoration: none;
     &:hover {
-        color: @link-color;
-        text-decoration: underline;
+        color: darken(@link-color, 20%);
+        //text-decoration: underline;
     }
 }
 
 .app-wrapper {
     position: absolute;
-    top: @outside-margin;
+    top: 0px;
     left: @outside-margin;
     right: @outside-margin;
     bottom: @outside-margin;

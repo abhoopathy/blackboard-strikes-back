@@ -1,13 +1,16 @@
 .toolbar {
-    box-shadow: lighten(black, 50%) 0 1px 10px;
-    .gradient( #333, darken(#333, 5%), lighten(#333, 15%));
-    //.border-radius(5px,0,0,5px);
-    .rounded(5px);
+    //box-shadow: lighten(black, 50%) 0 1px 10px;
+    //.gradient( @toolbar-color, darken(@toolbar-color, 5%), lighten(@toolbar-color, 5%));
+    background-color: @toolbar-color;
+    .border-radius(0,5,5,0);
+    border-bottom: 2px solid #333;
+    border-right: 2px solid #333;
+    border-left: 2px solid #333;
+    //.rounded(5px);
     top: 0px;
     height: @toolbar-height;
     left: 21%;
     right: @outside-margin;
-    background-color: #333;
     .content {
         position: static;
     }
