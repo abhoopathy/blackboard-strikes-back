@@ -9,10 +9,15 @@ define [
     Router = Backbone.Router.extend
         routes:
             'class/:id': 'openClass'
+            'class/:id/:type/:sectionTag': 'openPage'
+            'class/:id/:type/:taskID': 'openPage'
             '*actions': 'defaultAction'
 
         openClass: (classID) ->
-            App.mainView.openClass(classID, false)
+            App.mainView.openClass classID, false
+
+        openPage: (classID, type, id, sectionTag) ->
+            App.mainView.openPage(classID, type, id, false)
 
        #analytics: () ->
        #    url = Backbone.history.getFragment()

@@ -11,9 +11,16 @@ define [
 
     'cs!views/calendarPage',
 
+    'cs!views/pageViewer',
+
     'data',
 
-], ($, _, Backbone, ClassCollection, ClassListView, TaskCollection, TaskListView, CalendarPageView, Data) ->
+], ($, _, Backbone,
+ClassCollection, ClassListView,
+TaskCollection, TaskListView,
+CalendarPageView,
+PageViewer,
+Data) ->
 
     MainView = Backbone.View.extend
 
@@ -92,7 +99,11 @@ define [
             App.calendarPageView.filterEvents(classID, animate)
             this.currentClassID = classID
 
+        openPage: (classID, type, id, animate) ->
+            App.pageViewer.openPage(classID, type, id ,animate)
+
         initialize: () ->
+            App.pageViewer = new PageViewer()
 
             ##### Handling Calendar ####
             App.calendarPageView = new CalendarPageView(Data.months)
