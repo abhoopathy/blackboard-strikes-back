@@ -12,12 +12,27 @@ define [
         el: $('.task-list-container')
 
         events: {
+            'click .task-list-item': 'taskItemClicked'
+            'click .task-list-item-box': 'checkBoxClicked'
         }
 
         render: ->
             # Compile task list template and put in task list container
             compiledTasksTemplate = TasksTemplate {tasks: this.collection.toJSON() }
             this.$el.html compiledTasksTemplate
+
+        taskItemClicked: (e) ->
+            e.preventDefault()
+            classID = 0
+            type = 'task'
+            id = 0
+            App.openPage(classID, type, id, true)
+            #TODO App.router.navigate("#/#{classID}/task/#{id}")
+
+        checkBoxClicked: (e) ->
+            e.preventDefault()
+            e.stopPropagation()
+            console.log "checkBoxClicked"
 
         showAllTasks: (animate) ->
             this.$tasks = if this.$tasks then this.$tasks else $('.task-list-item')
