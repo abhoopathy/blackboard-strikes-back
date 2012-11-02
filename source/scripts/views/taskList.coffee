@@ -21,13 +21,17 @@ define [
             compiledTasksTemplate = TasksTemplate {tasks: this.collection.toJSON() }
             this.$el.html compiledTasksTemplate
 
+        #TODO do we need this shit? just for animation?
         taskItemClicked: (e) ->
-            e.preventDefault()
-            classID = 0
-            type = 'task'
-            id = 0
-            App.openPage(classID, type, id, true)
-            #TODO App.router.navigate("#/#{classID}/task/#{id}")
+            #e.preventDefault()
+            #$taskItem = $(e.target).closest('.task-list-item')
+
+            #classID = $taskItem.attr('data-classID')
+            #type = 'task'
+            #id = $taskItem.attr('data-taskID')
+
+            #App.mainView.openPage(classID, type, id, true)
+            #App.router.navigate("#/#{classID}/task/#{id}")
 
         checkBoxClicked: (e) ->
             e.preventDefault()

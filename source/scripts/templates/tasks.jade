@@ -1,6 +1,6 @@
 - each task in tasks
     - var klass= ((task.checked) ? 'task-list-item checked' : 'task-list-item')
-    a(class=klass, data-classid=task.classID, href="#class/#{task.classID}/task/#{task.id}")
+    a(class=klass, data-classID=task.classID, data-taskID=task.id, href="#class/#{task.classID}/task/#{task.id}")
         .task-list-item-box
         .task-list-item-text
             .task-list-item-name= task.taskName

@@ -1,4 +1,4 @@
-A First Level Header
+Lectures
 ====================
 
 A Second Level Header

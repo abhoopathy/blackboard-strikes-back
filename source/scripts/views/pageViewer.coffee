@@ -2,26 +2,32 @@ define [
     'jquery',
     'underscore',
     'backbone',
+    'markdown',
 
     #TODO can we not have this dependency?
     'data'
 
-    'mdown!pages/1/syllabus.md'
-
-], ($, _, Backbone, Data, SyllabusPage) ->
+], ($, _, Backbone, Markdown, Data) ->
 
     CalendarPageView = Backbone.View.extend
 
         el: $('.content')
 
-        render: ()->
-            this.$el.html(SyllabusPage)
+
+        render: (classID, type, id, animate)->
+
+            view = this
+            $.ajax
+                url: "scripts/pages/#{classID}/#{type}/#{id}.md"
+                dataType: "text"
+                success: (text) ->
+                    view.$el.html (Markdown.makeHtml text)
 
         openPage: (classID, type, id ,animate) ->
-            console.log "(classID: #{classID}, type: #{type}, id: #{id} ,animate: #{animate})"
+            #console.log "(classID: #{classID}, type: #{type}, id: #{id} ,animate: #{animate})"
+            this.render(classID, type, id, animate)
 
         initialize: () ->
-
 
 
     return CalendarPageView
