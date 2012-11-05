@@ -1,4 +1,4 @@
-blackboard-strikes-back
+Blackboard Redesign
 =======================
 
 Redesiging blackboard
