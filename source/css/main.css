@@ -332,9 +332,6 @@ a:hover {
   left: 21%;
   right: 30px;
 }
-.toolbar .content {
-  position: static;
-}
 .page.calendar {
   position: absolute;
   top: 15px;
@@ -554,4 +551,16 @@ a:hover {
     -webkit-background-clip: padding-box;
     background-clip: padding-box;
   }
+}
+.content {
+  padding: 20px;
+}
+.content h1 {
+  font-weight: bold;
+  font-size: 1.5em;
+}
+.content h2 {
+  font-weight: bold;
+  font-size: 1.1em;
+  margin-top: .2em;
 }
