@@ -1,3 +1,4 @@
+@import "font-awesome.css";
 /*---------------------------------------------------
     LESS Elements 0.6
   ---------------------------------------------------
@@ -116,6 +117,9 @@ p {
 .color5 {
   background-color: #aed47b;
 }
+* {
+  box-sizing: border-box;
+}
 body {
   background-color: #dfdfdf;
   color: #4b4b4b;
@@ -126,6 +130,15 @@ a {
 }
 a:hover {
   color: #1b3c3d;
+}
+h1 {
+  font-weight: bold;
+  font-size: 1.5em;
+}
+h2 {
+  font-weight: bold;
+  font-size: 1.1em;
+  margin-top: .2em;
 }
 .app-wrapper {
   position: absolute;
@@ -145,27 +158,130 @@ a:hover {
   background-clip: padding-box;
   position: absolute;
   width: 80%;
-  top: 65px;
+  top: 75px;
   bottom: 0px;
   left: 20%;
 }
+.list {
+  background-color: white;
+  box-shadow: #808080 0 1px 5px;
+  border-top: 1px solid #b3b3b3;
+  border-left: 1px solid #b3b3b3;
+  border-bottom: 1px solid #b3b3b3;
+  /*-webkit-mask-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAA5JREFUeNpiYGBgAAgwAAAEAAGbA+oJAAAAAElFTkSuQmCC);*/
+
+  /*TODO: background, none is dumb. refactor this. and the color code
+     * above to use mixins. also make the tasklist use this*/
+
+}
+.list-item {
+  border-top: 1px solid #b3b3b3;
+  cursor: pointer;
+  position: relative;
+  padding: 10px;
+  *zoom: 1;
+}
+.list-item:before,
+.list-item:after {
+  content: "";
+  display: table;
+}
+.list-item:after {
+  clear: both;
+}
+.list-item:first-child {
+  border-top: none;
+}
+.list-item:hover {
+  background-color: #f7f7f7;
+}
+.list-item.color1 {
+  background: none;
+  border-left: 10px solid #459698;
+}
+.list-item.color2 {
+  background: none;
+  border-left: 10px solid #ef4c57;
+}
+.list-item.color3 {
+  background: none;
+  border-left: 10px solid #f77c67;
+}
+.list-item.color4 {
+  background: none;
+  border-left: 10px solid #f9c46c;
+}
+.list-item.color5 {
+  background: none;
+  border-left: 10px solid #aed47b;
+}
+.avatar {
+  overflow: hidden;
+  margin: 0;
+}
+.avatar img {
+  width: 100%;
+  /* TODO: HACK*/
+
+  margin-top: -20px;
+}
+.avtr-s {
+  height: 30px;
+  width: 30px;
+}
+.avtr-m {
+  height: 40px;
+  width: 40px;
+}
+.chtlst-item {
+  padding: 10px;
+}
+.chtlst-itm-avtr {
+  float: left;
+}
+.chtlist-txtbox {
+  float: left;
+  margin-left: 8px;
+}
+.chtlst-itm-name {
+  font-size: 1em;
+  letter-spacing: 0em;
+  font-weight: bold;
+  white-space: nowrap;
+}
+.chtlst-itm-role {
+  white-space: nowrap;
+  font-size: 0.85em;
+  margin-top: .2em;
+}
+.chtlist-itm-tag {
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  margin-top: -10px;
+  color: white;
+  font-size: .8em;
+  font-weight: bold;
+  padding: 3px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  -moz-background-clip: padding;
+  -webkit-background-clip: padding-box;
+  background-clip: padding-box;
+}
 #side-col {
   position: absolute;
-  top: 75px;
+  top: 85px;
   width: 20%;
   left: 0;
   bottom: 20px;
-  /* For the Class List in top left -------------------------- */
-
-  /* For the Task List --------------------------------------- */
-
 }
-#side-col .class-list-container {
+/* For the Class List in top left -------------------------- */
+.class-list {
   overflow-y: auto;
   overflow-x: hidden;
   max-height: 80%;
-  background-color: white;
-  box-shadow: #808080 0 1px 5px;
   -webkit-border-top-right-radius: 0;
   -webkit-border-bottom-right-radius: 0;
   -webkit-border-bottom-left-radius: 5px;
@@ -181,55 +297,36 @@ a:hover {
   -moz-background-clip: padding;
   -webkit-background-clip: padding-box;
   background-clip: padding-box;
-  -webkit-mask-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAA5JREFUeNpiYGBgAAgwAAAEAAGbA+oJAAAAAElFTkSuQmCC);
-  border-top: 1px solid #b3b3b3;
-  border-left: 1px solid #b3b3b3;
-  border-bottom: 1px solid #b3b3b3;
   font-size: 1.1em;
   letter-spacing: -0.07em;
   font-weight: bold;
 }
-#side-col .class-list-container .class-list-item {
-  border-top: 1px solid #b3b3b3;
+.clsslist-itm {
   padding: 10px;
-  position: relative;
   padding-left: 25px;
-  cursor: pointer;
-  /* sublist that expands */
-
 }
-#side-col .class-list-container .class-list-item:first-child {
-  border-top: none;
-}
-#side-col .class-list-container .class-list-item .class-list-item-colorcode {
+.clsslist-itm-colorcode {
   position: absolute;
   top: 0;
   bottom: 0;
   left: 0;
   width: 15px;
 }
-#side-col .class-list-container .class-list-item .class-list-item-text {
+.clsslist-itm-text {
   white-space: nowrap;
 }
-#side-col .class-list-container .class-list-item ul.class-sublist {
+/* sublist that expands */
+ul.class-sublist {
   display: none;
   margin-left: 8px;
 }
-#side-col .class-list-container .class-list-item ul.class-sublist li {
+ul.class-sublist li {
   margin-top: 8px;
 }
-#side-col .class-list-container .class-list-item:hover {
-  background-color: #f7f7f7;
-}
-#side-col .task-list-container {
-  overflow-y: auto;
+/* For the Task List --------------------------------------- */
+.task-list {
   margin-top: 10px;
-  background-color: white;
-  box-shadow: #808080 0 1px 5px;
-  border-top: 1px solid #b3b3b3;
-  border-left: 1px solid #b3b3b3;
-  border-bottom: 1px solid #b3b3b3;
-  -webkit-mask-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAA5JREFUeNpiYGBgAAgwAAAEAAGbA+oJAAAAAElFTkSuQmCC);
+  overflow-y: auto;
   -webkit-border-top-right-radius: 0;
   -webkit-border-bottom-right-radius: 0;
   -webkit-border-bottom-left-radius: 5px;
@@ -246,27 +343,19 @@ a:hover {
   -webkit-background-clip: padding-box;
   background-clip: padding-box;
 }
-#side-col .task-list-container .task-list-item {
+.tsklist-itm {
   display: block;
-  color: #4b4b4b;
-  border-top: 1px solid #b3b3b3;
+  color: #3e3e3e;
   padding: 15px;
-  position: relative;
   overflow: hidden;
 }
-#side-col .task-list-container .task-list-item:first-child {
-  border-top: none;
-}
-#side-col .task-list-container .task-list-item:hover {
-  background-color: #f7f7f7;
-}
-#side-col .task-list-container .task-list-item.checked {
+.tsklist-itm.checked {
   -moz-opacity: 0.5;
   -khtml-opacity: 0.5;
   -webkit-opacity: 0.5;
   opacity: 0.5;
 }
-#side-col .task-list-container .task-list-item .task-list-item-box {
+.tsklist-itm-box {
   width: 15px;
   height: 15px;
   position: absolute;
@@ -278,22 +367,22 @@ a:hover {
   -webkit-background-clip: padding-box;
   background-clip: padding-box;
 }
-#side-col .task-list-container .task-list-item .task-list-item-text {
+.tsklist-itm-text {
   margin-left: 23px;
   float: left;
 }
-#side-col .task-list-container .task-list-item .task-list-item-text .task-list-item-name {
+.tsklist-itm-text .tsklist-itm-name {
   font-size: 1em;
   letter-spacing: 0em;
   font-weight: bold;
   white-space: nowrap;
 }
-#side-col .task-list-container .task-list-item .task-list-item-text .task-list-item-subtext {
+.tsklist-itm-text .tsklist-itm-subtext {
   white-space: nowrap;
   font-size: 0.85em;
   margin-top: .2em;
 }
-#side-col .task-list-container .task-list-item .task-list-item-tag {
+.tsklist-itm-tag {
   position: absolute;
   right: 8px;
   color: white;
@@ -311,7 +400,7 @@ a:hover {
   display: none;
 }
 .toolbar {
-  background-color: #4a4a4a;
+  background-color: #363636;
   -webkit-border-top-right-radius: 0;
   -webkit-border-bottom-right-radius: 5;
   -webkit-border-bottom-left-radius: 5;
@@ -328,9 +417,99 @@ a:hover {
   -webkit-background-clip: padding-box;
   background-clip: padding-box;
   top: 0px;
-  height: 45px;
+  height: 55px;
   left: 21%;
   right: 30px;
+  color: white;
+  *zoom: 1;
+}
+.toolbar:before,
+.toolbar:after {
+  content: "";
+  display: table;
+}
+.toolbar:after {
+  clear: both;
+}
+.toolbar  > .avatar {
+  margin-top: 7.5px;
+  margin-left: 10px;
+  float: left;
+}
+.tbar-menu {
+  float: right;
+}
+.tbar-menu  > .tbar-button {
+  position: relative;
+  cursor: pointer;
+  float: right;
+  color: white;
+  margin: 0;
+  padding: 0 15px 0 15px;
+  height: 100%;
+}
+.tbar-menu  > .tbar-button:hover {
+  background-color: #1c1c1c;
+  /* TODO: HACK*/
+
+  -webkit-border-radius: 5;
+  -moz-border-radius: 5;
+  border-radius: 5;
+  -moz-background-clip: padding;
+  -webkit-background-clip: padding-box;
+  background-clip: padding-box;
+}
+.tbar-menu  > .tbar-button  > i {
+  line-height: 55px;
+}
+.tbar-name {
+  float: left;
+  line-height: 55px;
+  margin-left: 10px;
+  font-weight: bold;
+}
+/* class for menus that pop down from toolbar, a la chat list*/
+.tbar-popdown {
+  display: none;
+  color: #3e3e3e;
+  position: absolute;
+  width: 200px;
+  z-index: 2;
+  right: 10px;
+  top: 48.888888888888886px;
+  box-shadow: #808080 0 2px 6px;
+}
+.tbar-popdown:after {
+  z-index: -1;
+  position: absolute;
+  top: -8px;
+  right: 3px;
+  width: 20px;
+  height: 20px;
+  /*TODO: hack, use var*/
+
+  background: white;
+  content: '';
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+.tbar-notification-counter {
+  float: right;
+  height: 25px;
+  width: 25px;
+  margin-top: 15px;
+  line-height: 25px;
+  text-align: center;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  -moz-background-clip: padding;
+  -webkit-background-clip: padding-box;
+  background-clip: padding-box;
+  color: #3e3e3e;
+  font-weight: bold;
+  background-color: white;
 }
 .page.calendar {
   position: absolute;
@@ -361,7 +540,7 @@ a:hover {
   background-color: #f2f2f2;
 }
 .page.calendar .cal-cell .cal-cell-number {
-  color: #7e7e7e;
+  color: #717171;
   font-size: .9em;
 }
 .page.calendar .cal-cell .cal-event {
@@ -553,14 +732,5 @@ a:hover {
   }
 }
 .content {
-  padding: 20px;
-}
-.content h1 {
-  font-weight: bold;
-  font-size: 1.5em;
-}
-.content h2 {
-  font-weight: bold;
-  font-size: 1.1em;
-  margin-top: .2em;
+  padding: 30px;
 }

@@ -1,0 +1,9 @@
+guard 'livereload' do
+  watch(%r{scripts/.+\.(coffee|jade)$})
+  watch(%r{css/.+\.(css)$})
+  #watch(%r{(app|vendor)(/assets/\w+/(.+\.(css|js|html))).*}) { |m| "/assets/#{m[3]}" }
+end
+
+guard 'less', :all_on_start => true, :all_after_change => true do
+  watch(%r{^.+\.less$})
+end

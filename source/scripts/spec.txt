@@ -1,0 +1,27 @@
+
+class:
+    id: _iter
+    name: _each('User Centered Research and Evaluation', 'Cognitive Modelling',
+          'Evolution & History of Life', 'Entrepreneurship for CS',
+          'Interpretation and Argument')
+
+people:
+    id: _iter
+    name: String
+    classification: instructors, ta, student
+    status: offline, online
+    classID: Int
+
+events:
+    id: _iter
+    type: lecture, exam, quiz, recitation, office hours
+    classID: Int
+    date:
+
+task:
+    id: _iter
+    name: String
+    dueDate: Date
+    completed: boolean
+    graded: boolean
+    classID: Int

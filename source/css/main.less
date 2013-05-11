@@ -1,7 +1,8 @@
-@import "elements.less";
-@import "grid.less";
-@import "reset.less";
-@import "mixins.less";
+@import "font-awesome.css";
+@import "_elements.less";
+@import "_grid.less";
+@import "_reset.less";
+@import "_mixins.less";
 
 .color1 { background-color: lighten(#3b8183, 6%); }
 .color2 { background-color: lighten(#ed303c, 6%); }
@@ -10,16 +11,17 @@
 .color5 { background-color: lighten(#a0cd64, 6%); }
 
 @link-color: #3b8183;
-@text-color: lighten(#313131,10%);
+@text-color: lighten(#313131,5%);
 @line-border-color: lighten(grey,20%);
 @outside-margin: 30px;
-@toolbar-height: 45px;
+@toolbar-height: 55px;
 @toolbar-bottom: 20px;
 
-@toolbar-color: lighten(#333, 9%);
+@toolbar-color: lighten(#333, 1%);
 //@toolbar-color: #990000;
 
 * {
+    box-sizing: border-box;
 }
 
 body {
@@ -35,6 +37,16 @@ a {
         color: darken(@link-color, 20%);
         //text-decoration: underline;
     }
+}
+
+h1 {
+    font-weight: bold;
+    font-size: 1.5em;
+}
+h2 {
+    font-weight: bold;
+    font-size: 1.1em;
+    margin-top: .2em;
 }
 
 .app-wrapper {
@@ -55,8 +67,63 @@ a {
     left: 20%;
 }
 
-@import "sidebar.less";
-@import "toolbar.less";
-@import "calendar.less";
-@import "compact.less";
-@import "content.less";
+
+.list {
+    .whitebox(5px);
+    border-top: 1px solid @line-border-color;
+    border-left: 1px solid @line-border-color;
+    border-bottom: 1px solid @line-border-color;
+    /*-webkit-mask-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAA5JREFUeNpiYGBgAAgwAAAEAAGbA+oJAAAAAElFTkSuQmCC);*/
+    /*TODO: background, none is dumb. refactor this. and the color code
+     * above to use mixins. also make the tasklist use this*/
+}
+
+.list-item {
+    border-top: 1px solid @line-border-color;
+    cursor: pointer;
+    position: relative;
+    padding: 10px;
+    .clearfix;
+
+    &:first-child {
+        border-top: none;
+    }
+    &:hover {
+        background-color: darken(white, 3%);
+    }
+
+    &.color1 { background: none; border-left: 10px solid lighten(#3b8183, 6%); }
+    &.color2 { background: none; border-left: 10px solid lighten(#ed303c, 6%); }
+    &.color3 { background: none; border-left: 10px solid lighten(#f5634a, 6%); }
+    &.color4 { background: none; border-left: 10px solid darken(#fad089, 6%); }
+    &.color5 { background: none; border-left: 10px solid lighten(#a0cd64, 6%); }
+
+}
+
+.avatar {
+    overflow: hidden;
+    margin: 0;
+
+    img {
+        width: 100%;
+        /* TODO: HACK*/
+        margin-top: -20px;
+    }
+}
+.avtr-s {
+    @avatar-size: 30px;
+    height: @avatar-size;
+    width: @avatar-size;
+}
+.avtr-m {
+    @avatar-size: 40px;
+    height: @avatar-size;
+    width: @avatar-size;
+}
+
+@import "_chat.less";
+@import "_sidebar.less";
+@import "_toolbar.less";
+@import "_calendar.less";
+@import "_compact.less";
+@import "_content.less";

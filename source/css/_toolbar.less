@@ -1,0 +1,97 @@
+.toolbar {
+    //box-shadow: lighten(black, 50%) 0 1px 10px;
+    //.gradient( @toolbar-color, darken(@toolbar-color, 5%), lighten(@toolbar-color, 5%));
+    background-color: @toolbar-color;
+    .border-radius(0,5,5,0);
+    //.rounded(5px);
+    top: 0px;
+    height: @toolbar-height;
+    left: 21%;
+    right: @outside-margin;
+
+    color: white;
+    .clearfix;
+
+    & > .avatar {
+        margin-top: (@toolbar-height - 40px) / 2;
+        margin-left: 10px;
+        float: left;
+
+    }
+}
+.tbar-menu {
+
+    float: right;
+
+    & > .tbar-button {
+        position: relative;
+        cursor: pointer;
+        float: right;
+        color: white;
+        margin: 0;
+        padding: 0 15px 0 15px;
+        height: 100%;
+
+        &:hover {
+            background-color: darken(@toolbar-color, 10%);
+            /* TODO: HACK*/
+            .rounded(5);
+        }
+
+        & > i {
+            line-height: @toolbar-height;
+        }
+    }
+
+}
+
+.tbar-name {
+    float: left;
+    line-height: @toolbar-height;
+    margin-left: 10px;
+    font-weight: bold;
+}
+
+/* class for menus that pop down from toolbar, a la chat list*/
+.tbar-popdown {
+    display: none;
+    color: @text-color;
+    position: absolute;
+    width: 200px;
+    z-index: 2;
+    right: 10px;
+    top: @toolbar-height * 8/9;
+    box-shadow: lighten(black, 50%) 0 2px 6px;
+
+    &:after {
+        z-index: -1;
+        position: absolute;
+        top: -8px;
+        right: 3px;
+        width: 20px;
+        height: 20px;
+        /*TODO: hack, use var*/
+        background: white;
+        content: '';
+        .rotation(45deg);
+    }
+}
+
+.tbar-notification-counter {
+    @notification-size: 25px;
+    float: right;
+    height: @notification-size;
+    width: @notification-size;
+
+    margin-top: (@toolbar-height - @notification-size)/2;
+    line-height: @notification-size;
+    text-align: center;
+
+    .rounded(4px);
+    color: @text-color;
+    font-weight: bold;
+    background-color: white;
+}
+
+
+

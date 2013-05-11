@@ -1,0 +1,17 @@
+//-.chat-list
+- for person in people
+
+    .chtlst-item.list-item(class=person.status)
+
+        .avatar.avtr-s.chtlst-itm-avtr
+            img(src='images/ab_avatar.jpg')
+
+        .chtlist-txtbox
+            .chtlst-itm-name= person.name
+
+            .chtlst-itm-role= person.role
+
+        //-TODO: make this shortName happen like it does for tasks
+        .chtlist-itm-tag(class="color"+person.classID)= person.shortName
+
+        .chtlist-itm-status

@@ -1,0 +1,105 @@
+#side-col {
+    position: absolute;
+    top: @toolbar-height + @toolbar-bottom + 10px;
+    width: 20%;
+    left: 0;
+    bottom: 20px;
+}
+
+/* For the Class List in top left -------------------------- */
+.class-list {
+    overflow-y: auto;
+    overflow-x: hidden;
+    max-height: 80%;
+    .border-radius(0,0,5px,5px);
+    font-size: 1.1em;
+    letter-spacing: -.07em;
+    font-weight: bold;
+}
+
+@colorcode-width: 15px;
+.clsslist-itm {
+    padding: 10px;
+    padding-left: @colorcode-width + 10px;
+}
+.clsslist-itm-colorcode {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: @colorcode-width;
+}
+.clsslist-itm-text {
+    white-space: nowrap;
+}
+
+/* sublist that expands */
+ul.class-sublist {
+    display: none;
+    margin-left: 8px;
+    li {
+        margin-top: 8px;
+    }
+}
+
+/* For the Task List --------------------------------------- */
+.task-list {
+    margin-top: 10px;
+    overflow-y: auto;
+    .border-radius(0,0,5px,5px);
+}
+
+
+@tsklist-itm-checkbox-size: 15px;
+.tsklist-itm {
+    display: block;
+    color: @text-color;
+    padding: 15px;
+    overflow: hidden;
+
+    &.checked {
+        .opacity(.5);
+        .tsklist-itm-box {
+            //TODO get check to appear here.
+        }
+    }
+}
+
+.tsklist-itm-box {
+    width: @tsklist-itm-checkbox-size;
+    height: @tsklist-itm-checkbox-size;
+    position: absolute;
+    border: 1px solid @line-border-color;
+    .rounded(3px);
+}
+.tsklist-itm-text {
+    margin-left: @tsklist-itm-checkbox-size + 8px;
+    float: left;
+    .tsklist-itm-name {
+        font-size: 1em;
+        letter-spacing: -.0em;
+        font-weight: bold;
+        white-space: nowrap;
+    }
+    .tsklist-itm-subtext {
+        white-space: nowrap;
+        font-size: 0.85em;
+        margin-top: .2em;
+    }
+}
+.tsklist-itm-tag {
+    position: absolute;
+    right: 8px;
+    color: white;
+    font-size: .8em;
+    font-weight: bold;
+    padding: 3px;
+    .rounded(3px);
+}
+
+.fullName {
+}
+.shortName {
+    display: none;
+}
+

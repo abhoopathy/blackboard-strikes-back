@@ -6,10 +6,8 @@ define [
     'jade!templates/calendar'
     'jade!templates/event'
 
-    #TODO can we not have this dependency?
-    'data'
 
-], ($, _, Backbone, CalendarTemplate, EventTemplate, Data) ->
+], ($, _, Backbone, CalendarTemplate, EventTemplate) ->
 
     CalendarPageView = Backbone.View.extend
 
@@ -20,15 +18,15 @@ define [
         render: (monthNumber)->
 
             # Get Month Data
-            month = this.collection[monthNumber]
+            month = @collection[monthNumber]
 
             # Generate fake data for this month,
-            this.fakeData month, 20
-            this.reoccuringData month
+            @fakeData month, 20
+            @reoccuringData month
 
             # Compile calendar template
             compiledTemplate = CalendarTemplate(month)
-            this.$el.html compiledTemplate
+            @$el.html compiledTemplate
 
             # For each event compile event template
             # and put it in calendar
@@ -101,7 +99,7 @@ define [
             eventNames = ["Office Hours", "Exam Review", "Exam", "Quiz", "Guest Lecture"]
 
             numDays = month.days
-            numClasses = Data.classes.length
+            numClasses = App.Data.classes.length
 
             # Add fake events using pickRandom function
             start = month.events.length+1
@@ -115,44 +113,50 @@ define [
                 month.events.push(event)
 
 
+        showEvents: () -> @showAllEvents(true)
+
         ## Show all calendar events. If animate is true, animate UI.
         showAllEvents: (animate) ->
-            this.$events = if this.$events then this.$events else $('.cal-event')
+            @$events = if @$events then @$events else $('.cal-event')
             if animate
-                this.$events.fadeIn(50)
+                @$events.fadeIn(50)
             else
-                this.$events.show()
+                @$events.show()
 
 
         ## Show only events matching this calendar ID. If animate is
         ## true, animate UI.
         filterEvents: (classID, animate) ->
 
-            this.$events =
-                if this.$events then this.$events else $('.cal-event')
+            @$events =
+                if @$events then @$events else $('.cal-event')
 
             # get events that match classID
             eventsToShow =
-                this.$events.filter "[data-classid='#{classID}']"
+                @$events.filter "[data-classid='#{classID}']"
 
             # get events that don't match classID
             eventsToHide =
-                _.filter this.$events,
+                _.filter @$events,
                          (div) -> $(div).attr('data-classid') != classID
 
             # Do hide/show work, animating if needed
             if animate
-                this.$(eventsToShow).fadeIn(50)
-                this.$(eventsToHide).fadeOut(50)
+                @$(eventsToShow).fadeIn(50)
+                @$(eventsToHide).fadeOut(50)
             else
-                this.$(eventsToShow).show()
-                this.$(eventsToHide).hide()
+                @$(eventsToShow).show()
+                @$(eventsToHide).hide()
 
 
-        initialize: (collection) ->
-            this.collection = collection
+        initialize: () ->
+            _.bindAll(this)
+            @collection = App.Data.months
             currentMonthNumber = 10#(new Date()).getMonth()+1
-            this.render(currentMonthNumber)
+            @render(currentMonthNumber)
+
+            App.Events.on 'openClass', @filterEvents
+            App.Events.on 'closeClass', @showEvents
 
 
     return CalendarPageView
