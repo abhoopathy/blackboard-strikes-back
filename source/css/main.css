@@ -149,7 +149,9 @@ h2 {
 }
 #main-col {
   background-color: white;
-  box-shadow: #808080 0 1px 12px;
+  /*border: 1px solid lighten(grey, 20%);*/
+
+  box-shadow: #808080 0 1px 5px;
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
   border-radius: 5px;
@@ -164,10 +166,13 @@ h2 {
 }
 .list {
   background-color: white;
-  box-shadow: #808080 0 1px 5px;
+  /*border: 1px solid lighten(grey, 20%);*/
+
+  box-shadow: #808080 0 1px 2px;
   border-top: 1px solid #b3b3b3;
   border-left: 1px solid #b3b3b3;
-  border-bottom: 1px solid #b3b3b3;
+  /*border-bottom: 1px solid @line-border-color;*/
+
   /*-webkit-mask-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAA5JREFUeNpiYGBgAAgwAAAEAAGbA+oJAAAAAElFTkSuQmCC);*/
 
   /*TODO: background, none is dumb. refactor this. and the color code
@@ -175,7 +180,7 @@ h2 {
 
 }
 .list-item {
-  border-top: 1px solid #b3b3b3;
+  border-bottom: 1px solid #b3b3b3;
   cursor: pointer;
   position: relative;
   padding: 10px;
@@ -189,8 +194,8 @@ h2 {
 .list-item:after {
   clear: both;
 }
-.list-item:first-child {
-  border-top: none;
+.list-item:last-child {
+  border-bottom: none;
 }
 .list-item:hover {
   background-color: #f7f7f7;

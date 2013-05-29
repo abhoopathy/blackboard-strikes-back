@@ -57,7 +57,7 @@ h2 {
     bottom: @outside-margin;
 }
 #main-col {
-    .whitebox(12px);
+    .whitebox(5px);
     .rounded(5px);
     position: absolute;
     width: 80%;
@@ -69,24 +69,24 @@ h2 {
 
 
 .list {
-    .whitebox(5px);
+    .whitebox(2px);
     border-top: 1px solid @line-border-color;
     border-left: 1px solid @line-border-color;
-    border-bottom: 1px solid @line-border-color;
+    /*border-bottom: 1px solid @line-border-color;*/
     /*-webkit-mask-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAA5JREFUeNpiYGBgAAgwAAAEAAGbA+oJAAAAAElFTkSuQmCC);*/
     /*TODO: background, none is dumb. refactor this. and the color code
      * above to use mixins. also make the tasklist use this*/
 }
 
 .list-item {
-    border-top: 1px solid @line-border-color;
+    border-bottom: 1px solid @line-border-color;
     cursor: pointer;
     position: relative;
     padding: 10px;
     .clearfix;
 
-    &:first-child {
-        border-top: none;
+    &:last-child {
+        border-bottom: none;
     }
     &:hover {
         background-color: darken(white, 3%);

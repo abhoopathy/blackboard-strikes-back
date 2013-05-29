@@ -25,7 +25,6 @@ define [
         #TODO: it would be cool if we could hack global events into backbone
         # events hash, and take out this extra step.
         # OR pattern match events on attributes. that would also be cool.
-
         chatButtonClicked: -> App.Events.trigger "toolbar:chatButtonClicked"
         settingsButtonClicked: -> App.Events.trigger "toolbar:settingsButtonClicked"
         notificationButtonClicked: -> App.Events.trigger "toolbar:notificationButtonClicked"
