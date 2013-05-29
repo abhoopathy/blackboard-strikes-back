@@ -1,6 +1,3 @@
-window.App =
-    Views: {}
-    Collections: {}
 
 #The App
 define [
@@ -22,6 +19,10 @@ define [
 ) ->
 
     initialize = ->
+
+        window.App =
+            Views: {}
+            Collections: {}
 
         ### PubSub ###
         ## 'openClass', 'openPage'

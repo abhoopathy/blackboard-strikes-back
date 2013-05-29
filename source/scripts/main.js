@@ -1,6 +1,3 @@
-window.p = function (s) {
-    console.log(s);
-};
 //Define shortcut aliases
 
 require.config({
